@@ -22,6 +22,27 @@ angular.module('trafficBuddyApp')
         } else {
           // TODO: Add error message for unsupported broswer
         }
+      },
+
+      /**
+      * @params  {string} address             - User entered address/location
+      *
+      * @returns {object} position            - Current user position
+      * @returns {number} position.latitude   - Latitude of position
+      * @returns {number} position.longitude  - Longitude of position
+      */
+      geocode: function(address) {
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            var results = {};
+            results.latitude = results[0].geometry.location.lat();
+            results.longitude = results[0].geometry.location.lng();
+            return results
+          } else {
+            // TODO: Add error message handling for geocoder error
+          }
+        });
       }
     }
   });
