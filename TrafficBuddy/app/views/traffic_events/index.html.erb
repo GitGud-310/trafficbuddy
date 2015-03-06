@@ -4,7 +4,17 @@
   <% @traffic_events.each do |t| %>
       <li>
         <%= t.title %>
+        <ul>
+          <% LatLon.where(traffic_event: t).each do |l| %>
+          <li>
+            Latitude : <%= l.latitude %>
+            Longitude : <%= l.longitude %>
+          </li>
+          <% end %>
+        </ul>
       </li>
   <% end %>
 </ul>
+
+
 
