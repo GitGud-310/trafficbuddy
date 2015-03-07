@@ -5,6 +5,9 @@
       <li>
         <%= t.title %>
         <ul>
+          <li>
+            <%= t.content %>
+          </li>
           <% LatLon.where(traffic_event: t).each do |l| %>
           <li>
             Latitude : <%= l.latitude %>
