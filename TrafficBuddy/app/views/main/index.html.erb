@@ -44,3 +44,26 @@
     </ul>
   </div>
 </nav>
+
+<div id="map-canvas" style="width: 100%; height: 500px;">
+</div>
+
+<button class="waves-effect" onclick="centerMap()">find me</button>
+
+<script>
+    var default_lat = 49.2598379;
+    var default_lng = -123.2459363;
+    var mapOptions = {
+        center: new google.maps.LatLng(default_lat, default_lng),
+        zoom: 12
+    };
+
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+    function centerMap() {
+        utils.geolocate(function(position) {
+            var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            map.panTo(latLng);
+        });
+    }
+</script>

@@ -8,12 +8,13 @@ var utils = {
      * @return  undefined
      */
     geolocate: function(onSuccess, onError, onUnsupported) {
+        this.loaderOverlay();
         var success = typeof onSuccess === "function" ? onSuccess : this._geolocate_success;
         var error = typeof onError === "function" ? onError : this._geolocate_error;
         if ('geolocation' in navigator) {
             navigator.geolocation.getCurrentPosition(success, error);
         } else {
-            toast("Your browser doesn't support geolocation. Update to a modern browser or use the location finder.", this._defaultToastLength);
+            toast("Your browser doesn't support geolocation. Update to a modern browser or use the location finder.", utils._defaultToastLength);
         }
     },
 
@@ -30,6 +31,7 @@ var utils = {
         // TODO: actually implement default behaviour
         document.getElementById("location").innerHTML = position.coords.latitude + ", " + position.coords.longitude;
         console.log({latitude: position.coords.latitude, longitude: position.coords.longitude});
+        utils.loaderOverlayDone();
     },
 
     /**
@@ -44,7 +46,8 @@ var utils = {
      */
     _geolocate_error: function(error) {
         var message = error.message === "" ? "" : ", " + error.message;
-        toast("Whoa! There was an error getting your location. Check your permissions and try again. (Error " + error.code + message + ")");
+        toast("Whoa! There was an error getting your location. Check your permissions and try again. (Error " + error.code + message + ")", utils._defaultToastLength);
+        utils.loaderOverlayDone();
     },
 
     /**
@@ -55,6 +58,7 @@ var utils = {
      * @return  undefined
      */
     geocode: function(address, onSuccess, onError) {
+        this.loaderOverlay();
         var success = typeof onSuccess === "function" ? onSuccess : this._geocode_success;
         var error = typeof onError === "function" ? onError : this._geocode_error;
         var geocoder = new google.maps.Geocoder();
@@ -79,6 +83,7 @@ var utils = {
     _geocode_success: function(results) {
         // TODO: actually implement default behaviour
         console.log({latitude: results[0].geometry.location.lat(), longitude: results[0].geometry.location.lng()});
+        utils.loaderOverlayDone();
     },
 
     /**
@@ -97,7 +102,7 @@ var utils = {
         switch (status) {
             case google.maps.GeocoderStatus.ZERO_RESULTS:
             case google.maps.GeocoderStatus.INVALID_REQUEST:
-                m = "No results found. Enter another address and try again.";
+                m = "No results found. Enter another address and try again. ";
                 break;
             case google.maps.GeocoderStatus.OVER_QUERY_LIMIT:
             case google.maps.GeocoderStatus.REQUEST_DENIED:
@@ -106,6 +111,19 @@ var utils = {
             default:
                 m = "An error occurred.";
         }
-        toast(m, this._defaultToastLength);
+        toast(m, utils._defaultToastLength);
+        utils.loaderOverlayDone();
+    },
+
+    /**
+     *
+     */
+
+    loaderOverlay: function() {
+        document.getElementById("preloader-overlay").style.display = "block";
+    },
+
+    loaderOverlayDone: function() {
+        document.getElementById("preloader-overlay").style.display = "none";
     }
 }
