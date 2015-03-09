@@ -1,4 +1,5 @@
 var utils = {
+    _defaultToastLength: 4000, // ms
 
     /**
      * @param   {function} [onSuccess = _geolocate_success] - callback on success
@@ -12,7 +13,7 @@ var utils = {
         if ('geolocation' in navigator) {
             navigator.geolocation.getCurrentPosition(success, error);
         } else {
-            toast("Your browser doesn't support geolocation. Update to a modern browser or use the location finder.");
+            toast("Your browser doesn't support geolocation. Update to a modern browser or use the location finder.", this._defaultToastLength);
         }
     },
 
@@ -105,6 +106,6 @@ var utils = {
             default:
                 m = "An error occurred.";
         }
-        toast(m);
+        toast(m, this._defaultToastLength);
     }
 }
