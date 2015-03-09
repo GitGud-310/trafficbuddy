@@ -19,3 +19,36 @@
   top: 50%;
   left: 50%;
 }
+
+@font-face {
+  font-family: "Material-Design-Icons";
+  src: asset-url("material-design-icons/Material-Design-Icons.eot");
+  src: asset-url("material-design-icons/Material-Design-Icons.eot?#iefix") format("embedded-opentype"), asset-url("material-design-icons/Material-Design-Icons.woff") format("woff"), asset-url("material-design-icons/Material-Design-Icons.ttf") format("truetype"), asset-url("material-design-icons/Material-Design-Icons.svg#Material-Design-Icons") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+
+@font-face {
+  font-family: "Roboto";
+  src: asset-url("roboto/Roboto-Thin.ttf");
+  font-weight: 200; }
+
+@font-face {
+  font-family: "Roboto";
+  src: asset-url("roboto/Roboto-Light.ttf");
+  font-weight: 300; }
+
+@font-face {
+  font-family: "Roboto";
+  src: asset-url("roboto/Roboto-Regular.ttf");
+  font-weight: 400; }
+
+@font-face {
+  font-family: "Roboto";
+  src: asset-url("roboto/Roboto-Medium.ttf");
+  font-weight: 500; }
+
+@font-face {
+  font-family: "Roboto";
+  src: asset-url("roboto/Roboto-Bold.ttf");
+  font-weight: 700; }
