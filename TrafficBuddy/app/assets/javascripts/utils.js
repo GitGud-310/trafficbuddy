@@ -67,13 +67,15 @@ var utils = {
      */
     geocode: function(address, onSuccess, onError) {
         this.loaderOverlay();
-        var success = typeof onSuccess === "function" ? onSuccess : this._geocode_success;
-        var error = typeof onError === "function" ? onError : this._geocode_error;
+        var success = typeof onSuccess === "function" ? onSuccess : utils._geocode_success;
+        var error = typeof onError === "function" ? onError : utils._geocode_error;
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({'address': address}, function (results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
+                utils.loaderOverlayDone();
                 success(results);
             } else {
+                utils.loaderOverlayDone();
                 error(status);
             }
         });
