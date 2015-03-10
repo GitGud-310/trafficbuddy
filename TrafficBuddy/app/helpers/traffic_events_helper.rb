@@ -31,11 +31,7 @@ module TrafficEventsHelper
   end
 
   def clear_database
-    TrafficEvent.all.each do |t|
-      t.destroy
-    end
-    LatLon.all.each do |l|
-      l.destroy
-    end
+    TrafficEvent.delete_all
+    LatLon.delete_all
   end
 end
