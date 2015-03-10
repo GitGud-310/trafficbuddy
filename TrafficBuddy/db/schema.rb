@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150306015116) do
 
   create_table "lat_lons", force: true do |t|
@@ -31,8 +30,6 @@ ActiveRecord::Schema.define(version: 20150306015116) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-=======
-ActiveRecord::Schema.define(version: 20150305231111) do
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -43,6 +40,5 @@ ActiveRecord::Schema.define(version: 20150305231111) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
->>>>>>> feature/users
 
 end
