@@ -48,7 +48,7 @@
 <div id="map-canvas" style="width: 100%; height: 500px;">
 </div>
 
-<button class="waves-effect" onclick="centerMap()">find me</button>
+<a class="waves-effect waves-light btn" onclick="centerMap()"><i class="mdi-maps-my-location left"></i>Find me</a>
 
 <script>
     var default_lat = 49.2598379;
@@ -59,11 +59,21 @@
     };
 
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    var marker;
 
     function centerMap() {
         utils.geolocate(function(position) {
             var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             map.panTo(latLng);
+            if (marker) {
+                marker.setMap(null);
+                marker = null;
+            }
+            marker = new google.maps.Marker({
+                map: map,
+                animation: google.maps.Animation.DROP,
+                position: latLng
+            });
         });
     }
 </script>
