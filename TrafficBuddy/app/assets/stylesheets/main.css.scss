@@ -75,10 +75,7 @@
   display: none;
 }
 
-#modal1{
-  width: 400px;
-}
-
-#modal2{
-  width: 400px;
+.modal-center {
+  margin: auto;
+  display: block !important;
 }

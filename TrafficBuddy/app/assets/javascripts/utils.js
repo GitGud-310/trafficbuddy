@@ -2,12 +2,13 @@ var utils = {
     _defaultToastLength: 4000, // ms
 
     /**
+     * HTML5 Geolocation function.
      * @param   {function} [onSuccess = _geolocate_success] - callback on success
      * @param   {function} [onError = _geolocate_error]     - callback on error
      *
      * @return  undefined
      */
-    geolocate: function(onSuccess, onError, onUnsupported) {
+    geolocate: function(onSuccess, onError) {
         this.loaderOverlay();
         var success = typeof onSuccess === "function" ? onSuccess : utils._geolocate_success;
         var error = typeof onError === "function" ? onError : utils._geolocate_error;
@@ -28,7 +29,7 @@ var utils = {
     /**
      * @name    _geolocate_success
      *
-     * @param   {object} position                    - position object from geolocation
+     * @param   {Geoposition} position               - position object from geolocation
      * @param   {number} position.coords.latitude    - latitude
      * @param   {number} position.coords.longitude   - longitude
      *
@@ -66,13 +67,15 @@ var utils = {
      */
     geocode: function(address, onSuccess, onError) {
         this.loaderOverlay();
-        var success = typeof onSuccess === "function" ? onSuccess : this._geocode_success;
-        var error = typeof onError === "function" ? onError : this._geocode_error;
+        var success = typeof onSuccess === "function" ? onSuccess : utils._geocode_success;
+        var error = typeof onError === "function" ? onError : utils._geocode_error;
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({'address': address}, function (results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
+                utils.loaderOverlayDone();
                 success(results);
             } else {
+                utils.loaderOverlayDone();
                 error(status);
             }
         });
@@ -123,7 +126,8 @@ var utils = {
     },
 
     /**
-     *
+     * Creates spinning preloader. Call when an action requiring a loader is performed.
+     * @return undefined
      */
 
     loaderOverlay: function() {
@@ -131,6 +135,10 @@ var utils = {
         $(".preloader-bg").addClass("animated-fast fadeInDown")
     },
 
+    /**
+    * Removes preloader. Call upon completion of action.
+    * @return undefined
+    */
     loaderOverlayDone: function() {
         document.getElementById("preloader-overlay").style.display = "none";
         $(".preloader-bg").removeClass("animated-fast fadeInDown");
