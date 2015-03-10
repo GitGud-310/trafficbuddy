@@ -61,7 +61,7 @@
 <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper blue">
-            <a href="#" class="brand-logo">TrafficBuddy</a>
+          <%= link_to 'TrafficBuddy', root_path, class: 'brand-logo' %>
             <div class="row">
                 <ul id="nav" class="col s10 offset-s2">
                     <li><%= link_to 'Traffic Events', controller: 'traffic_events' %></li>
@@ -74,7 +74,7 @@
                       </div>
                     </form>
                   </li>
-                    <li><%= link_to 'Login', sessions_new_path %></li>
+                    <li><%= link_to 'Login', sessions_new_path, class: 'btn' %></li>
                     <li><!-- Modal Trigger for alternative location--><a class="waves-effect waves-light btn modal-trigger" href="#modal2">Location</a></li>
                 </ul>
             </div>
@@ -82,9 +82,8 @@
     </nav>
 </div>
 
-<ul id="slide-out" class="side-nav">
-    <li><a href="#!">First Sidebar Link</a></li>
-    <li><a href="#!">Second Sidebar Link</a></li>
+<ul id="slide-out" class="s3 side-nav">
+ <%= render 'traffic_events/events' %>
 </ul>
 
 <a class="blue button-collapse btn" href="#" data-activates="slide-out"><i class="mdi-navigation-menu"></i></a>
