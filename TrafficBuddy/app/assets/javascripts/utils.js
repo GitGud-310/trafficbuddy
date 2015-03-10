@@ -9,12 +9,19 @@ var utils = {
      */
     geolocate: function(onSuccess, onError, onUnsupported) {
         this.loaderOverlay();
-        var success = typeof onSuccess === "function" ? onSuccess : this._geolocate_success;
-        var error = typeof onError === "function" ? onError : this._geolocate_error;
+        var success = typeof onSuccess === "function" ? onSuccess : utils._geolocate_success;
+        var error = typeof onError === "function" ? onError : utils._geolocate_error;
         if ('geolocation' in navigator) {
-            navigator.geolocation.getCurrentPosition(success, error);
+            navigator.geolocation.getCurrentPosition(function(results) {
+                utils.loaderOverlayDone();
+                success(results);
+            }, function(err) {
+                utils.loaderOverlayDone();
+                error(err);
+            });
         } else {
-            toast("Your browser doesn't support geolocation. Update to a modern browser or use the location finder.", utils._defaultToastLength);
+            toast("Your browser doesn't support geolocation. Update to a modern browser or use the location finder.", utils._defaultToastLength)
+            utils.loaderOverlayDone();
         }
     },
 
@@ -121,9 +128,11 @@ var utils = {
 
     loaderOverlay: function() {
         document.getElementById("preloader-overlay").style.display = "block";
+        $(".preloader-bg").addClass("animated-fast fadeInDown")
     },
 
     loaderOverlayDone: function() {
         document.getElementById("preloader-overlay").style.display = "none";
+        $(".preloader-bg").removeClass("animated-fast fadeInDown");
     }
 }
