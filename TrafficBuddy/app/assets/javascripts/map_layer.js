@@ -1,7 +1,7 @@
 /**
  * Created by takea on 15-03-10.
  */
-function mapLayer() {
+function mapLayer(map) {
     var trafficLayer = new google.maps.TrafficLayer();
     trafficLayer.setMap(map);
 
@@ -19,16 +19,16 @@ function mapLayer() {
         var latlon2 = latlons[latlon_length-1];
 
         if (latlons_length == 1) {
-            putIcon(latlon1);
+            putIcon(latlon1, map);
         } else {
-            putIcon(latlon1);
-            putIcon(latlon2);
-            drawLine(latlons);
+            putIcon(latlon1, map);
+            putIcon(latlon2, map);
+            drawLine(latlons, map);
         }
     }
 }
 
-function putIcon(latlon) {
+function putIcon(latlon, map) {
     var myLatlon = new google.maps.LatLng(latlon.latitude, latlon.longitude);
 
     var image = 'images/favicon.ico';
@@ -39,13 +39,13 @@ function putIcon(latlon) {
     });
 }
 
-function drawLine(latlons) {
+function drawLine(latlons, map) {
     for (i=0; i < latlons.length - 1; i++) {
-        drawLineHelper(latlons[i], latlons[i+1]);
+        drawLineHelper(latlons[i], latlons[i+1], map);
     }
 }
 
-function drawLineHelper(latlon_start, latlon_end) {
+function drawLineHelper(latlon_start, latlon_end, map) {
 
     //not sure about svg notation
 
