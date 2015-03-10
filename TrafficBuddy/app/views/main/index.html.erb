@@ -128,6 +128,7 @@
     }
 
     function processForm(e) {
+        e.preventDefault();
         utils.geocode($('#new_location').val(), function(results) {
             var latLng = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
             centerMap(latLng);
