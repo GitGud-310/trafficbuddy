@@ -1,0 +1,20 @@
+<h1>All TrafficEvents</h1>
+
+<ul id="trafficevents" class="collection">
+  <% TrafficEvent.all.each do |t| %>
+      <li class="collection-item">
+        <%= t.title %>
+        <ul>
+          <li class="collection-item">
+            <%= t.content %>
+          </li>
+          <% LatLon.where(traffic_event: t).each do |l| %>
+              <li class="collection-item">
+                Latitude : <%= l.latitude %>
+                Longitude : <%= l.longitude %>
+              </li>
+          <% end %>
+        </ul>
+      </li>
+  <% end %>
+</ul>

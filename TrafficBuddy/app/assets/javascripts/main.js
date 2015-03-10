@@ -10,6 +10,7 @@ $('.modal-trigger').leanModal({
 });
 
     $('.button-collapse').sideNav({
+        menuWidth: 300,
         edge:   'right'
     });
 
