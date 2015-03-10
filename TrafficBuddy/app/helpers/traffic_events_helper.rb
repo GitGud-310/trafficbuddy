@@ -8,7 +8,7 @@ module TrafficEventsHelper
       if entry.categories.first != "Upcoming Project"
         tevent = TrafficEvent.new
         tevent.title = entry.title
-        tevent.content = entry.content
+
         parse_latlon(tevent, entry.location)
         tevent.save
       end

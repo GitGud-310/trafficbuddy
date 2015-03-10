@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :traffic_events
+=======
+  get 'sessions/new'
+  root                'users#new'
+  get    'signup' =>  'users#new'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+  resources :users
+  
+>>>>>>> feature/users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
