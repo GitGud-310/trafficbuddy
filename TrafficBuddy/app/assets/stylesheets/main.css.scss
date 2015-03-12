@@ -78,6 +78,12 @@
   background: rgba(0,0,0,0);
 }
 
+@media only screen and (min-width: 993px) {
+  nav a.button-collapse {
+    display: block !important;
+  }
+}
+
 #sidenav-overlay{
   display: none;
 }
