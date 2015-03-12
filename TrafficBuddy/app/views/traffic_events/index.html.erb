@@ -1,22 +1,20 @@
-<h1>All TrafficEvents</h1>
+<h1>All Traffic Events</h1>
 
 <ul id="trafficevents">
-  <% @traffic_events.each do |t| %>
-      <li>
-        <%= t.title %>
-        <ul>
-          <li>
-            <%= t.content %>
-          </li>
-          <% LatLon.where(traffic_event: t).each do |l| %>
-          <li>
-            Latitude : <%= l.latitude %>
-            Longitude : <%= l.longitude %>
-          </li>
-          <% end %>
-        </ul>
-      </li>
-  <% end %>
+    <% @traffic_events.each do |t| %>
+        <div class="row">
+            <div class="col s8">
+                <div class="card blue darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">
+                            <%= t.title %>
+                        </span>
+                        <p><%= t.content %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
 </ul>
 
 
