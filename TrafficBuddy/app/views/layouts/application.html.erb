@@ -66,17 +66,17 @@
                 <ul id="nav" class="col s10 offset-s2">
                     <li><%= link_to 'Traffic Events', controller: 'traffic_events' %></li>
                     <li><a href="#">Favourites</a></li>
-                  <li>
-                    <form>
-                      <div class="input-field">
-                        <input id="search" type="text" required>
-                        <label for="search"><i class="mdi-action-search"></i></label>
-                      </div>
-                    </form>
-                  </li>
-                    <li><%= link_to 'Login', sessions_new_path, class: 'btn waves-effect waves-light' %></li>
-                    <li><%= link_to 'Sign Up', new_user_path, class:'btn waves-effect waves-light' %></li>
-                    <li><!-- Modal Trigger for alternative location--><a class="waves-effect waves-light btn modal-trigger" href="#modal2">Location</a></li>
+                      <li>
+                        <form>
+                          <div class="input-field">
+                            <input id="search" type="text" required>
+                            <label for="search"><i class="mdi-action-search"></i></label>
+                          </div>
+                        </form>
+                      </li>
+                    <li class="no-hover"><%= link_to 'Login', sessions_new_path, class: 'btn waves-effect waves-light' %></li>
+                    <li class="no-hover"><%= link_to 'Sign Up', new_user_path, class:'btn waves-effect waves-light no-hover' %></li>
+                    <li class="no-hover"><!-- Modal Trigger for alternative location--><a class="waves-effect waves-light btn modal-trigger" href="#modal2">Location</a></li>
                 </ul>
             </div>
         </div>
