@@ -121,4 +121,11 @@
     document.getElementById('search-field').addEventListener('submit', performSearch);
     document.getElementById('location-form').addEventListener('submit', processForm);
     document.getElementById('location-submit').addEventListener('click', processForm);
+
+    $('.traffic-card').click(centerMapCardClick);
+
+    function centerMapCardClick(e) {
+        map.panTo(new google.maps.LatLng($(this).data('lat'), $(this).data('lon')));
+        map.setZoom(17);
+    }
 </script>
