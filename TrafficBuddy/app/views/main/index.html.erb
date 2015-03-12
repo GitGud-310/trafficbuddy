@@ -67,6 +67,18 @@
         return false;
     }
 
+    function performSearch(e) {
+        e.preventDefault();
+        utils.geocode($('#search-query').val(), function(results) {
+            var latLng = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+            centerMap(latLng);
+            $('#search-field')[0].reset();
+        });
+        return false;
+    }
+
+
+
     function mapLayer(map) {
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
@@ -106,6 +118,7 @@
 
     mapLayer(map);
 
+    document.getElementById('search-field').addEventListener('submit', performSearch);
     document.getElementById('location-form').addEventListener('submit', processForm);
     document.getElementById('location-submit').addEventListener('click', processForm);
 </script>
