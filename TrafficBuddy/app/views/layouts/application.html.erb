@@ -75,7 +75,7 @@
                         </form>
                       </li>
                     <% if logged_in? %>
-                        <li class="no-hover"><%= link_to 'Logout', sessions_new_path, class: 'btn waves-effect waves-light' %></li>
+                        <li class="no-hover"><%= link_to 'Logout', logout_path, method: "delete", class: 'btn waves-effect waves-light' %></li>
                     <% else %>
                         <li class="no-hover"><%= link_to 'Login', sessions_new_path, class: 'btn waves-effect waves-light' %></li>
                         <li class="no-hover"><%= link_to 'Sign Up', new_user_path, class:'btn waves-effect waves-light no-hover' %></li>
