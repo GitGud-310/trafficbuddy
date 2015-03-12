@@ -24,8 +24,6 @@
     "0"
     ];
 
-
-
 <% end %>
 
 <script>
@@ -38,7 +36,6 @@
 
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
     var marker;
-
 
     function centerMap(latLng) {
         map.panTo(latLng);
@@ -73,10 +70,6 @@
     function mapLayer(map) {
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
-
-        /* using gon gem, set this variable in controller
-         gon.traffic_events = TrafficEvent.all
-         */
 
         for (i=0; i < events_latlons.length-1; i++) {
 

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
   <title>TrafficBuddy</title>
-  <%= include_gon %>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= @api_key %>"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -17,6 +19,153 @@
   </style>
 </head>
 <body>
+
+<div class="preloader-main-wrap" id="preloader-overlay">
+    <div class="preloader-bg z-depth-2">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper blue">
+          <%= link_to 'TrafficBuddy', root_path, class: 'brand-logo' %>
+            <div class="row">
+                <ul id="nav" class="col s10 offset-s2">
+                    <li><%= link_to 'Traffic Events', controller: 'traffic_events' %></li>
+                    <li><a href="#">Favourites</a></li>
+                      <li>
+                        <form>
+                          <div class="input-field">
+                            <input id="search" type="text" required>
+                            <label for="search"><i class="mdi-action-search"></i></label>
+                          </div>
+                        </form>
+                      </li>
+                    <li class="no-hover"><%= link_to 'Login', sessions_new_path, class: 'btn waves-effect waves-light' %></li>
+                    <li class="no-hover"><%= link_to 'Sign Up', new_user_path, class:'btn waves-effect waves-light no-hover' %></li>
+                    <li class="no-hover"><!-- Modal Trigger for alternative location--><a class="waves-effect waves-light btn modal-trigger" href="#modal2">Location</a></li>
+                    <li class="no-hover"><a class="blue button-collapse btn" href="#" data-activates="slide-out"><i class="mdi-navigation-menu"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<ul id="slide-out" class="s3 side-nav">
+ <%= render 'traffic_events/events' %>
+</ul>
+
+
+<!-- Modal Structure for Login: Currently disabled-->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>
+            <span class="red-text text-darken-4">Login</span>
+        </h4>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name">
+                            <span class="grey-text text-darken-4">Name</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">
+                            <span class="grey-text text-darken-4">Password</span>
+                        </label>
+                    </div>
+                    <div class="row">
+                        <p>
+                            <input type="checkbox" id="test5" />
+                            <label for="test5">Keep me logged in.</label>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Login</a>
+        <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Cancel</a>
+    </div>
+</div>
+
+<!-- Modal Structure for alternative location-->
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <h4>
+            <span class="red-text text-darken-4">Set alternate location</span>
+        </h4>
+        <div class="row">
+            <div class="container">
+                <button class="waves-effect waves-light btn modal-action modal-close modal-center" onclick="geolocate()"><i class="mdi-maps-my-location left"></i>Find me automatically</button>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+            <form class="col s12" id="location-form">
+                <div class="input-field col s12">
+                    <input name="location" id="new_location" type="text" class="validate">
+                    <label for="new_location">
+                        <span class="grey-text text-darken-4">Location</span>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="location-submit">Set</a>
+        <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Cancel</a>
+    </div>
+</div>
 
 <%= yield %>
 
