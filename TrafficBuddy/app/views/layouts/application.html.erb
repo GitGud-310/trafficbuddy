@@ -74,8 +74,12 @@
                           </div>
                         </form>
                       </li>
-                    <li class="no-hover"><%= link_to 'Login', sessions_new_path, class: 'btn waves-effect waves-light' %></li>
-                    <li class="no-hover"><%= link_to 'Sign Up', new_user_path, class:'btn waves-effect waves-light no-hover' %></li>
+                    <% if logged_in? %>
+                        <li class="no-hover"><%= link_to 'Logout', sessions_new_path, class: 'btn waves-effect waves-light' %></li>
+                    <% else %>
+                        <li class="no-hover"><%= link_to 'Login', sessions_new_path, class: 'btn waves-effect waves-light' %></li>
+                        <li class="no-hover"><%= link_to 'Sign Up', new_user_path, class:'btn waves-effect waves-light no-hover' %></li>
+                    <% end %>
                     <li class="no-hover"><!-- Modal Trigger for alternative location--><a class="waves-effect waves-light btn modal-trigger" href="#modal2">Location</a></li>
                     <li class="no-hover"><a class="blue button-collapse btn" href="#" data-activates="slide-out"><i class="mdi-navigation-menu"></i></a></li>
                 </ul>
