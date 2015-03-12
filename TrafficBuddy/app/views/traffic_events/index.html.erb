@@ -1,21 +1,24 @@
 <h1>All Traffic Events</h1>
 
-<ul id="trafficevents">
-    <% @traffic_events.each do |t| %>
-        <div class="row">
-            <div class="col s8">
-                <div class="card blue darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">
-                            <%= t.title %>
-                        </span>
-                        <p><%= t.content %></p>
-                    </div>
+<% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name %>
+<% end -%>
+
+<% @traffic_events.each do |t| %>
+    <div class="row">
+        <div class="col s8">
+            <div class="card blue darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">
+                        <%= t.title %>
+                    </span>
+                    <p><%= t.content %></p>
                 </div>
             </div>
         </div>
-    <% end %>
-</ul>
+    </div>
+<% end %>
+
 
 
 

@@ -7,5 +7,7 @@ class TrafficEventsController < ApplicationController
 
   def parse
     parse_traffic
+    flash[:notice] = "Traffic events updated"
+    redirect_to traffic_events_url
   end
 end
