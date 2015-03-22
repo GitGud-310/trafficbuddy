@@ -17,3 +17,6 @@
 
 # IntelliJ IDEA
 .idea/
+
+# Ignore environment variables
+.env
