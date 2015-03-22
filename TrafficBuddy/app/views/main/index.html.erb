@@ -100,6 +100,18 @@
             openWindow =  new google.maps.InfoWindow({content: title});
             openWindow.open(map,marker);
         });
+
+        google.maps.event.addListener(map, 'click', function() {
+            if (openWindow)
+                openWindow.close();
+            openWindow = null;
+        });
+
+        google.maps.event.addListener(map, 'drag', function() {
+            if (openWindow)
+                openWindow.close();
+            openWindow = null;
+        });
     }
 
     mapLayer(map);
