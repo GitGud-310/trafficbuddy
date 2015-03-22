@@ -2,28 +2,20 @@
 </div>
 
 <%= javascript_tag do %>
-    var events_latlons =
-    [
+    var events_latlons = [];
     <% TrafficEvent.all.each do |t| %>
-        [
+        var latlons = [];
         <% LatLon.where(traffic_event: t).each do |l| %>
-            [ "<%= l.latitude  %>","<%= l.longitude %>"],
+            var latlon = new google.maps.LatLng(<%= l.latitude  %>, <%= l.longitude %>);
+            latlons.push(latlon);
         <%end%>
-        ["0","0"]
-        ],
+        events_latlons.push(latlons);
     <%end%>
-    [
-    ["0","0"]
-    ]
-    ];
 
-    var events_titles = [
+    var events_titles = [];
     <% TrafficEvent.all.each do |t| %>
-        "<%= t.title %>",
+        events_titles.push("<%= t.title %>");
     <%end%>
-    "0"
-    ];
-
 <% end %>
 
 <script>
@@ -83,31 +75,25 @@
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
 
-        for (i=0; i < events_latlons.length-1; i++) {
+        for (i=0; i < events_latlons.length; i++) {
 
             var lat_lon1 = events_latlons[i][0];
-            var lat_lon2 = events_latlons[i][events_latlons[i].length - 2];
+            var lat_lon2 = events_latlons[i][events_latlons[i].length - 1];
 
-            if (events_latlons[i].length == 2) {
-                putIcon(lat_lon, events_titles[i], map);
-            } else {
-                putIcon(lat_lon1, events_titles[i], map);
-                putIcon(lat_lon2, events_titles[i], map);
-            }
+            putIcon(lat_lon1, events_titles[i], map);
+            putIcon(lat_lon2, events_titles[i], map);
+
         }
     }
 
     function putIcon(lat_lon, title, map) {
-        var myLatlon = new google.maps.LatLng(lat_lon[0], lat_lon[1]);
-
-        var contentString = title;
 
         var infowindow = new google.maps.InfoWindow({
-            content: contentString
+            content: title
         });
 
         var marker = new google.maps.Marker({
-            position: myLatlon,
+            position: lat_lon,
             map: map
         });
 
