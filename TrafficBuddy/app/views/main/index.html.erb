@@ -28,6 +28,7 @@
 
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
     var marker;
+    var openWindow;
 
     function centerMap(latLng) {
         map.panTo(latLng);
@@ -87,18 +88,17 @@
     }
 
     function putIcon(lat_lon, title, map) {
-
-        var infowindow = new google.maps.InfoWindow({
-            content: title
-        });
-
         var marker = new google.maps.Marker({
             position: lat_lon,
             map: map
         });
 
         google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map,marker);
+            if (openWindow)
+                openWindow.close();
+
+            openWindow =  new google.maps.InfoWindow({content: title});
+            openWindow.open(map,marker);
         });
     }
 
