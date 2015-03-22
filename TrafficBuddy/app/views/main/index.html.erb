@@ -29,6 +29,7 @@
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
     var marker;
     var openWindow;
+    var markers = [];
 
     function centerMap(latLng) {
         map.panTo(latLng);
@@ -62,11 +63,6 @@
 
     function performSearch(e) {
         e.preventDefault();
-        utils.geocode($('#search-query').val(), function(results) {
-            var latLng = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
-            centerMap(latLng);
-            $('#search-field')[0].reset();
-        });
         return false;
     }
 
@@ -115,9 +111,6 @@
     }
 
     function initialize() {
-
-        var markers = [];
-
         // Create the search box and link it to the UI element.
         var input = /** @type {HTMLInputElement} */(
                 document.getElementById('search-query'));
@@ -142,24 +135,17 @@
             markers = [];
             var bounds = new google.maps.LatLngBounds();
             for (var i = 0, place; place = places[i]; i++) {
-                var image = {
-                    url: place.icon,
-                    size: new google.maps.Size(71, 71),
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(17, 34),
-                    scaledSize: new google.maps.Size(25, 25)
-                };
 
                 // Create a marker for each place.
                 // uncomment for specialized markers
-                /*var marker = new google.maps.Marker({
+                var marker = new google.maps.Marker({
                     map: map,
-                    icon: image,
                     title: place.name,
-                    position: place.geometry.location
+                    position: place.geometry.location,
+                    animation: google.maps.Animation.DROP
                 });
 
-                markers.push(marker);*/
+                markers.push(marker);
 
                 bounds.extend(place.geometry.location);
             }
