@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
   <title>TrafficBuddy</title>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= @api_key %>"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= @api_key %>&libraries=places&sensor=false"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
