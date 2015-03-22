@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
+  # Facebook authorization routing
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+
   resources :traffic_events
 
   # get 'sessions/new'
