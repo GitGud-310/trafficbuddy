@@ -30,8 +30,6 @@ gem 'feedjira', git: 'https://github.com/feedjira/feedjira.git', branch:'faraday
 gem 'bcrypt', '~> 3.1.7'
 # Omniauth for Facebook authentication
 gem 'omniauth-facebook', '~> 1.4.1'
-# Social media share buttons
-gem 'social-share-button', '~> 0.1.6'
 
 
 # Use unicorn as the app server
