@@ -84,9 +84,13 @@
     }
 
     function putIcon(lat_lon, title, map) {
+
+        var image = 'images/construction_icon.png';
+
         var marker = new google.maps.Marker({
             position: lat_lon,
-            map: map
+            map: map,
+            icon: image
         });
 
         google.maps.event.addListener(marker, 'click', function() {
