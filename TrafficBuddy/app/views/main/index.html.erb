@@ -77,8 +77,13 @@
             var lat_lon1 = events_latlons[i][0];
             var lat_lon2 = events_latlons[i][events_latlons[i].length - 1];
 
-            putIcon(lat_lon1, events_titles[i], map);
-            putIcon(lat_lon2, events_titles[i], map);
+            if (events_latlons[i].length == 2) {
+                putIcon(lat_lon1, events_titles[i], map);
+            } else {
+                putIcon(lat_lon1, events_titles[i], map);
+                putIcon(lat_lon2, events_titles[i], map);
+                drawLine(events_latlons[i], map);
+            }
 
         }
     }
@@ -113,6 +118,19 @@
             openWindow = null;
         });
     }
+
+    function drawLine(lat_lons, map) {
+        var constructionPath = new google.maps.Polyline({
+            path: lat_lons,
+            geodesic: true,
+            strokeColor: '#282828',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+        });
+
+        constructionPath.setMap(map);
+    }
+
 
     function initialize() {
         // Create the search box and link it to the UI element.
