@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   resources :traffic_events
+  resources :bookmarked_locations
 
   # get 'sessions/new'
   # root                'users#new'

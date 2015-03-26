@@ -1,0 +1,2 @@
+class BookmarkedLocationsController < ApplicationController
+end
