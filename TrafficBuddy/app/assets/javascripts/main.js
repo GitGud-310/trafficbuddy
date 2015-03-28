@@ -1,6 +1,10 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 // //You can use CoffeeScript in this file: http://coffeescript.org/
+var webcams;
+
+var webcamKMLURL = "http://data.vancouver.ca/download/kml/webcams.kml";
+
 
 var ready = function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
@@ -19,6 +23,10 @@ var ready = function(){
     $('.button-collapse').sideNav('show');
     // Hide sideNav
     $('.button-collapse').sideNav('hide');
+
+    $.get(webcamKMLURL, function(r) {
+        webcams = toGeoJSON.kml(r).features;
+    });
 };
 
 $(document).ready(ready);
