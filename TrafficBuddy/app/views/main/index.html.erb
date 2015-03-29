@@ -136,7 +136,8 @@
         constructionPath.setMap(map);
     }
 
-    function calcRoute() {
+    function calcRoute(e) {
+        e.preventDefault();
         var start = document.getElementById('start-loc').value;
         var end = document.getElementById('destination-loc').value;
         var request = {
