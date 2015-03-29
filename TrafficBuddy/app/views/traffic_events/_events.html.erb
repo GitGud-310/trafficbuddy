@@ -5,6 +5,9 @@
         <div class="col s12">
             <% l = LatLon.where(traffic_event: t).first %>
             <div class="traffic-card card blue darken-1" data-lat="<%= l.latitude %>" data-lon="<%= l.longitude %>">
+                <div class="card-image">
+                    <img src="https://maps.googleapis.com/maps/api/streetview?size=400x300&location=<%= l.latitude %>,<%= l.longitude %>&fov=90&heading=235&pitch=10&key=<%= @api_key %>">
+                </div>
                 <div class="card-content white-text">
                     <span class="card-title" style="line-height: 32px;">
                         <%= t.title %>
