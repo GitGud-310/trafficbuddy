@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+<name>traffic_cameras</name>
+<visibility>1</visibility>
+<Style id="KMLStyler_13">
+<IconStyle>
+<colorMode>normal</colorMode>
+<scale>1</scale>
+<Icon>
+<href>http://maps.gstatic.com/mapfiles/ms2/micons/blue.png</href>
+</Icon>
+</IconStyle>
+<LabelStyle>
+<scale>0</scale>
+</LabelStyle>
+<LineStyle>
+<colorMode>normal</colorMode>
+</LineStyle>
+<PolyStyle>
+<colorMode>normal</colorMode>
+</PolyStyle>
+</Style>
+<Folder id="kml_ft_Traffic_Cameras">
+<name>Traffic_Cameras</name>
+<Placemark id="TCM36">
+<name>Beatty St &amp; Dunsmuir St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/BeattyDunsmuir.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.110542,49.2798513,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM38">
+<name>Beatty St &amp; W Georgia St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/beattyGeorgia.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.112273646781,49.2787098421077,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM13">
+<name>Boundary Rd &amp; E Hastings St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/hastings.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.023578,49.2811188,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM46">
+<name>Boundary Rd &amp; Grandview Hwy</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/BoundaryGrandviewHwy.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.02361,49.25822,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM31">
+<name>Burrard St &amp; Canada Pl</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/BurrardCanadaPlace.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.115479083554,49.2881431972814,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM11">
+<name>Burrard St &amp; Cornwall Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/BurrardCornwall4.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.146200846216,49.2728254984234,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM12">
+<name>Burrard St &amp; Pacific St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/BurrardPacific4.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.132359942237,49.2769754719523,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM05">
+<name>Cambie Bridge</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/cambiebridge.htm'&gt;Live traffic camera&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.114886176233,49.2667756269949,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM19">
+<name>Cambie St &amp; Nelson St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/cambieNelson.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.118130911495,49.2761048691871,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM32">
+<name>Cambie St &amp; SW Marine</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/CambieMarine.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.117110735151,49.2101449448247,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM07">
+<name>Cambie St &amp; W 12th Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/12th.htm'&gt;Live traffic camera&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.114967985868,49.2603889490707,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM09">
+<name>Cambie St &amp; W 16th Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/cambie16th.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.115084873166,49.256907684832,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM25">
+<name>Cambie St &amp; W 41st Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/cambie41.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.116192190431,49.2335434721856,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM24">
+<name>Cambie St &amp; W 49th Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/cambie49.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.116492357278,49.2261139995231,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM27">
+<name>Cambie St &amp; W Broadway</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/cambieBroadway.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.114883421659,49.2632184560264,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM26">
+<name>Cambie St &amp; W King Edward Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/cambie25.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.115406053889,49.248990875309,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM03">
+<name>Cardero St &amp; W Pender St / W Georgia St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/georgia3.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.130520302544,49.290510806346,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM21">
+<name>Cassiar Connector &amp; E Hastings St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/cassiarHastings.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.030835801938,49.2811264797669,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM14">
+<name>Chilco St &amp; W Georgia St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://www.th.gov.bc.ca/bchighwaycam/index.aspx?hideFramework=False&amp;cam=19'&gt;Live traffic camera&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.136787449782,49.2942590380806,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM41">
+<name>Clark Dr &amp; E 12th Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/clark12.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.077555176815,49.259622152424,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM01">
+<name>Clark Dr &amp; E 1st Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/clark4.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.077346577693,49.2696673278744,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM45">
+<name>Clark Dr &amp; E Hastings St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/ClarkHastings.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.07711,49.28131,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM44">
+<name>Clark Dr &amp; Powell St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/ClarkPowell.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.07711,49.28309,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM35">
+<name>Commercial Dr &amp; E 1st Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/Commercial01.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.069621664266,49.2695996340758,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM40">
+<name>Commercial Dr &amp; E Broadway</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/commercialBroadway.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.069762688147,49.2623194551024,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM02">
+<name>Denman St &amp; W Georgia St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/denman3.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.133742210751,49.2925940002885,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM47">
+<name>Earles St &amp; Kingsway</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/EarlesKingsway.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.04881,49.23758,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM18">
+<name>Expo Blvd &amp; Smithe St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/expoSmithe.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.114727137422,49.2758069601355,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM30">
+<name>Granville St &amp; Dunsmuir St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/GranvilleDunsmuir.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.116411709855,49.2836239860524,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM39">
+<name>Granville St &amp; Nelson St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/granvilleNelson.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.123013825971,49.2792581951786,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM50">
+<name>Granville St &amp; Robson St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/granvilleRobson.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.119829,49.2813697,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM08">
+<name>Granville St &amp; W 70th Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/granville70th.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.140525163827,49.2085840137306,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM06">
+<name>Granville St &amp; W Broadway</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/broadwayGranville.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.138554334693,49.2635968497724,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM37">
+<name>Granville St &amp; W Georgia St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/granvilleGeorgia.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.11812055027,49.2824942805362,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM51">
+<name>Hornby St &amp; Pacific St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/hornbyPacific.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.131337,49.2763164,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM48">
+<name>Hornby St &amp; Robson St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/HornbyRobson.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.121791,49.2826429,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM43">
+<name>Hornby St &amp; W Georgia St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/hornbyGeorgia.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.120082749606,49.2837645081745,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM49">
+<name>Howe St &amp; W Georgia St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/howeGeorgia.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.119088,49.2831269,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM22">
+<name>Knight St &amp; E 41st Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/knight.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.077030889534,49.2327151572131,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM23">
+<name>Knight St &amp; E 57th Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/knight57.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.07702523194,49.2181272253316,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM52">
+<name>Macdonald &amp; W 4th Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/macdonald4.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.16831,49.26837,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM33">
+<name>Main St &amp; E 2nd Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/Main2.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.100696908039,49.2691679881689,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM29">
+<name>Main St &amp; E 33rd Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/main33.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.101486354168,49.2405023736559,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM34">
+<name>Main St &amp; E Hastings St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/MainHastings.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.099648798315,49.2813356595642,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM42">
+<name>Main St &amp; Kingsway</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/mainKingsway7.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.10089513196,49.2644481387721,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM28">
+<name>Main St &amp; Terminal Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/mainTerminal.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.100028035364,49.2727762979223,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM16">
+<name>North End 1</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://www.th.gov.bc.ca/bchighwaycam/index.aspx?hideFramework=False&amp;cam=18'&gt;Live traffic camera&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.136097203402,49.3225045845296,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM17">
+<name>North End 2</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://www.th.gov.bc.ca/bchighwaycam/index.aspx?hideFramework=False&amp;cam=20'&gt;Live traffic camera&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.13372947695,49.3221970168933,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM10">
+<name>Oak St &amp; W 70th Av</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/oak4.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.130252725283,49.2084701202487,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM20">
+<name>Renfrew St &amp; E Hastings St</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/renfrewHastings.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.044076554126,49.2811221877658,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM04">
+<name>Rupert St &amp; Grandview Hwy</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://former.vancouver.ca/engsvcs/streets/roadwork/grandview4.htm'&gt;Traffic camera images&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.033764228688,49.2581519344414,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark id="TCM15">
+<name>Stanley Park Causeway</name>
+<description>&lt;br&gt;&lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;Phone: 3-1-1 or 604-873-7000&lt;br&gt;&lt;a href='http://www.th.gov.bc.ca/bchighwaycam/index.aspx?hideFramework=False&amp;cam=17'&gt;Live traffic camera&lt;/a&gt;</description>
+<styleUrl>#KMLStyler_13</styleUrl>
+<Point>
+<coordinates>-123.136736007805,49.2972589838826,0 </coordinates>
+</Point>
+</Placemark>
+</Folder>
+</Document></kml>

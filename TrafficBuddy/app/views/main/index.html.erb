@@ -31,6 +31,8 @@
     var openWindow;
     var markers = [];
 
+    var webcams;
+
     function centerMap(latLng) {
         map.panTo(latLng);
         if (marker) {
@@ -160,6 +162,28 @@
             var bounds = map.getBounds();
             searchBox.setBounds(bounds);
         });
+
+
+
+        $.get('/webcams.kml', function(r) {
+            webcams = toGeoJSON.kml(r).features;
+            webcams.forEach(function(e) {
+                var infowindow = new google.maps.InfoWindow({
+                    content: e.properties.description
+                });
+
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(e.geometry.coordinates[0], e.geometry.coordinates[1]),
+                    map: map,
+                    title: e.properties.name
+                });
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open(map,marker);
+                });
+            });
+        });
+
+
     }
 
     mapLayer(map);
