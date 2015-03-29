@@ -134,10 +134,10 @@
     }
 
 
-    function initialize() {
+    function initialize(field) {
         // Create the search box and link it to the UI element.
         var input = /** @type {HTMLInputElement} */(
-                document.getElementById('search-query'));
+                document.getElementById(field));
 
         var searchBox = new google.maps.places.SearchBox(
                 /** @type {HTMLInputElement} */(input));
@@ -156,25 +156,27 @@
             }
 
             // For each place, get the icon, place name, and location.
-            markers = [];
-            var bounds = new google.maps.LatLngBounds();
-            for (var i = 0, place; place = places[i]; i++) {
+            if (field == 'search_query') {
+                markers = [];
+                var bounds = new google.maps.LatLngBounds();
+                for (var i = 0, place; place = places[i]; i++) {
 
-                // Create a marker for each place.
-                // uncomment for specialized markers
-                var marker = new google.maps.Marker({
-                    map: map,
-                    title: place.name,
-                    position: place.geometry.location,
-                    animation: google.maps.Animation.DROP
-                });
+                    // Create a marker for each place.
+                    // uncomment for specialized markers
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        title: place.name,
+                        position: place.geometry.location,
+                        animation: google.maps.Animation.DROP
+                    });
 
-                markers.push(marker);
+                    markers.push(marker);
 
-                bounds.extend(place.geometry.location);
+                    bounds.extend(place.geometry.location);
+                }
+
+                map.fitBounds(bounds);
             }
-
-            map.fitBounds(bounds);
         });
         // [END region_getplaces]
 
@@ -214,7 +216,11 @@
     document.getElementById('search-field').addEventListener('submit', performSearch);
     document.getElementById('location-form').addEventListener('submit', processForm);
     document.getElementById('location-submit').addEventListener('click', processForm);
-    google.maps.event.addDomListener(window, 'load', initialize);
+    google.maps.event.addDomListener(window, 'load', function() {
+        initialize('search-query');
+        initialize('start-loc');
+        initialize('destination-loc');
+    });
     $('.traffic-card').click(centerMapCardClick);
 
     function centerMapCardClick(e) {
