@@ -26,6 +26,9 @@
         zoom: 12
     };
 
+    var directionsDisplay;
+    var directionsService = new google.maps.DirectionsService();
+
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
     var marker;
     var openWindow;
@@ -133,6 +136,23 @@
         constructionPath.setMap(map);
     }
 
+    function calcRoute() {
+        var start = document.getElementById('start-loc').value;
+        var end = document.getElementById('destination-loc').value;
+        var request = {
+            origin:start,
+            destination:end,
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+        directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+            }
+        });
+
+        $('#trip-modal').closeModal();
+
+    }
 
     function initialize(field) {
         // Create the search box and link it to the UI element.
@@ -208,14 +228,18 @@
         });
 
 
+
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        directionsDisplay.setMap(map);
     }
 
     mapLayer(map);
 
-
     document.getElementById('search-field').addEventListener('submit', performSearch);
     document.getElementById('location-form').addEventListener('submit', processForm);
     document.getElementById('location-submit').addEventListener('click', processForm);
+    document.getElementById('trip-form').addEventListener('submit', calcRoute);
+    document.getElementById('trip-submit').addEventListener('click', calcRoute);
     google.maps.event.addDomListener(window, 'load', function() {
         initialize('search-query');
         initialize('start-loc');
