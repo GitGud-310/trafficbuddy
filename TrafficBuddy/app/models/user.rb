@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :planned_trips
+
 	before_save { self.email = email.downcase }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 	validates :name,  presence: true, length: { maximum: 50 }

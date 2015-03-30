@@ -1,0 +1,41 @@
+<h1>Listing planned_trips</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start loc</th>
+      <th>End loc</th>
+      <th>Start lat</th>
+      <th>Start lon</th>
+      <th>End lat</th>
+      <th>End lon</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @planned_trips.each do |planned_trip| %>
+      <tr>
+        <td><%= planned_trip.start_loc %></td>
+        <td><%= planned_trip.end_loc %></td>
+        <td><%= planned_trip.start_lat %></td>
+        <td><%= planned_trip.start_lon %></td>
+        <td><%= planned_trip.end_lat %></td>
+        <td><%= planned_trip.end_lon %></td>
+        <td><%= planned_trip.created_at %></td>
+        <td><%= planned_trip.updated_at %></td>
+        <td><%= planned_trip.user %></td>
+        <td><%= link_to 'Show', planned_trip %></td>
+        <td><%= link_to 'Edit', edit_planned_trip_path(planned_trip) %></td>
+        <td><%= link_to 'Destroy', planned_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Planned trip', new_planned_trip_path %>

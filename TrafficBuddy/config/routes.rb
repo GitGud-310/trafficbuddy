@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :planned_trips
+
   get 'sessions/new'
 
   resources :traffic_events
