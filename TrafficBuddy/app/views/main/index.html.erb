@@ -248,12 +248,12 @@
     document.getElementById('trip-submit').addEventListener('click', calcRoute);
     document.getElementById('trip-planner').addEventListener('click', prepareTripPlanner);
     document.getElementById('select-past-trips').addEventListener('click', function() {
-       $('#past-trips-modal').openModal();
-       $('#trip-modal').closeModal();
+        $('#trip-modal').closeModal();
+        $('#past-trips-modal').openModal();
     });
     document.getElementById('switch-trip-planner').addEventListener('click', function() {
-        $('#trip-modal').openModal();
         $('#past-trips-modal').closeModal();
+        $('#trip-modal').openModal();
     });
     google.maps.event.addDomListener(window, 'load', function() {
         initialize('search-query');
