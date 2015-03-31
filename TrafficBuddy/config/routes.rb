@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :planned_trips
 
+  delete 'planned_trips' => 'planned_trips#destroy_all'
+
   get 'sessions/new'
 
   resources :traffic_events

@@ -15,4 +15,10 @@ class PlannedTripsController < ApplicationController
     flash[:success] = "Trip removed"
     redirect_to root_path
   end
+
+  def destroy_all
+    PlannedTrip.destroy_all
+    flash[:success] = "Trips removed"
+    redirect_to root_path
+  end
 end

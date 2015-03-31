@@ -166,6 +166,24 @@
 
     }
 
+    function calcRoute2(e, start, end) {
+        e.preventDefault();
+
+        var request = {
+            origin:start,
+            destination:end,
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+        directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+            }
+        });
+
+        $('#trip-modal').closeModal();
+
+    }
+
     function prepareTripPlanner() {
         $('#destination-loc').focus();
         document.getElementById('destination-loc').value = document.getElementById('search-query').value;
