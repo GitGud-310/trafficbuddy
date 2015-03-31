@@ -190,7 +190,7 @@
     </div>
 
     <div class="modal-footer">
-      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="trip-submit">Plan</a>
+      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="trip-submita">Plan</a>
       <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="select-past-trips">Or select from a list of past trips</a>
       <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Cancel</a>
     </div>
@@ -204,14 +204,20 @@
     </h4>
     <div class="row">
       <%= form_for(PlannedTrip.create) do |p| %>
-          <p>
-            <%= p.label :Location %><br />
-            <%= p.text_field :start_loc %>
-          </p>
-          <p>
-            <%= p.label :Destination%><br />
-            <%= p.text_area :end_loc %>
-          </p>
+          <div class="input-field col s12">
+            <%= p.text_field :start_loc, placeholder: "" %>
+            <label for="start-loc">
+              <span class="grey-text text-darken-4">Starting Location</span>
+            </label>
+          </div>
+
+          <div class="input-field col s12">
+            <%= p.text_field :end_loc, placeholder: ""%>
+            <label for="destination-loc">
+              <span class="grey-text text-darken-4">Destination Location</span>
+            </label>
+          </div>
+
           <p>
             <%= p.submit  %>
           </p>

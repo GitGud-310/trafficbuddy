@@ -138,8 +138,8 @@
 
     function calcRoute(e) {
         e.preventDefault();
-        var start = document.getElementById('start-loc').value;
-        var end = document.getElementById('destination-loc').value;
+        var start = document.getElementById('planned_trip_start_loc').value;
+        var end = document.getElementById('planned_trip_end_loc').value;
 
 
         var request = {
@@ -259,8 +259,8 @@
     });
     google.maps.event.addDomListener(window, 'load', function() {
         initialize('search-query');
-        initialize('start-loc');
-        initialize('destination-loc');
+        initialize('planned_trip_start_loc');
+        initialize('planned_trip_end_loc');
         initialize('new_location');
     });
     $('.traffic-card').click(centerMapCardClick);
