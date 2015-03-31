@@ -191,7 +191,9 @@
 
     <div class="modal-footer">
       <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="trip-submit">Plan</a>
+      <% if logged_in? %>
       <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="select-past-trips">Select from a list of planned trips</a>
+          <% end %>
       <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Cancel</a>
     </div>
 </div>
