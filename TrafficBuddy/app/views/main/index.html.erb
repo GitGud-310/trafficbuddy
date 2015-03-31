@@ -138,8 +138,8 @@
 
     function calcRoute(e) {
         e.preventDefault();
-        var start = document.getElementById('planned_trip_start_loc').value;
-        var end = document.getElementById('planned_trip_end_loc').value;
+        var start = document.getElementById('start-loc').value;
+        var end = document.getElementById('destination-loc').value;
 
         $.ajax({
             url: "<%= url_for :controller=>'planned_trips', :action=>'create' %>", // Route to the PlannedTrip Controller
@@ -269,8 +269,8 @@
     });
     google.maps.event.addDomListener(window, 'load', function() {
         initialize('search-query');
-        initialize('planned_trip_start_loc');
-        initialize('planned_trip_end_loc');
+        initialize('start-loc');
+        initialize('destination-loc');
         initialize('new_location');
     });
     $('.traffic-card').click(centerMapCardClick);
