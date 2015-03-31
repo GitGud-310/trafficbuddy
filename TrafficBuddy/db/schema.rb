@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306015116) do
+ActiveRecord::Schema.define(version: 20150330050936) do
 
   create_table "lat_lons", force: true do |t|
     t.decimal  "latitude",         precision: 15, scale: 10, default: 0.0
@@ -22,6 +22,20 @@ ActiveRecord::Schema.define(version: 20150306015116) do
   end
 
   add_index "lat_lons", ["traffic_event_id"], name: "index_lat_lons_on_traffic_event_id", using: :btree
+
+  create_table "planned_trips", force: true do |t|
+    t.string   "start_loc"
+    t.string   "end_loc"
+    t.decimal  "start_lat",  precision: 15, scale: 10, default: 0.0
+    t.decimal  "start_lon",  precision: 15, scale: 10, default: 0.0
+    t.decimal  "end_lat",    precision: 15, scale: 10, default: 0.0
+    t.decimal  "end_lon",    precision: 15, scale: 10, default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "planned_trips", ["user_id"], name: "index_planned_trips_on_user_id", using: :btree
 
   create_table "traffic_events", force: true do |t|
     t.string   "title"

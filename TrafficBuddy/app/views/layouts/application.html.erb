@@ -81,7 +81,7 @@
                         <li class="no-hover"><%= link_to 'Sign Up', new_user_path, class:'btn waves-effect waves-light no-hover' %></li>
                     <% end %>
                     <li class="no-hover"><!-- Modal Trigger for alternative location--><a class="waves-effect waves-light btn modal-trigger" href="#modal2">Location</a></li>
-                    <li class="no-hover"><!-- Modal Trigger for trip planning --><a class="waves-effect waves-light btn modal-trigger" href="#trip-modal">Plan a Trip</a></li>
+                    <li class="no-hover"><!-- Modal Trigger for trip planning --><a class="waves-effect waves-light btn modal-trigger" href="#trip-modal" id="trip-planner">Plan a Trip</a></li>
                     <li class="no-hover"><a class="blue button-collapse btn" href="#" data-activates="slide-out"><i class="mdi-navigation-menu"></i></a></li>
                 </ul>
             </div>
@@ -149,7 +149,7 @@
         <div class="row">
             <form class="col s12" id="location-form">
                 <div class="input-field col s12">
-                    <input name="location" id="new_location" type="text" class="validate">
+                    <input name="location" id="new_location" type="text" class="validate" placeholder="">
                     <label for="new_location">
                         <span class="grey-text text-darken-4">Location</span>
                     </label>
@@ -190,9 +190,46 @@
     </div>
 
     <div class="modal-footer">
-        <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="trip-submit">Plan</a>
-        <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Cancel</a>
+      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="trip-submit">Plan</a>
+      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="select-past-trips">Or select from a list of past trips</a>
+      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Cancel</a>
     </div>
+</div>
+
+
+<!-- Modal Structure for trip planning -->
+<div id="past-trips-modal" class="modal">
+  <div class="modal-content">
+    <h4>
+      <span class="red-text text-darken-4">Select a Past Trip</span>
+    </h4><table>
+    <thead>
+    <tr>
+      <th>Start loc</th>
+      <th>End loc</th>
+      <th>Planned on</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% PlannedTrip.all.each do |planned_trip| %>
+        <tr>
+          <td><%= planned_trip.start_loc %></td>
+          <td><%= planned_trip.end_loc %></td>
+          <td><%= planned_trip.created_at %></td>
+          <td><%= link_to 'Destroy', planned_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="modal-footer">
+    <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="trip-submit">Plan</a>
+    <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="switch-trip-planner">Or select from a list of past trips</a>
+    <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Cancel</a>
+  </div>
 </div>
 
 <%= yield %>

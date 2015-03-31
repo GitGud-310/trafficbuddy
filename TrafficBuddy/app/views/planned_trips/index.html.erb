@@ -21,16 +21,8 @@
       <tr>
         <td><%= planned_trip.start_loc %></td>
         <td><%= planned_trip.end_loc %></td>
-        <td><%= planned_trip.start_lat %></td>
-        <td><%= planned_trip.start_lon %></td>
-        <td><%= planned_trip.end_lat %></td>
-        <td><%= planned_trip.end_lon %></td>
         <td><%= planned_trip.created_at %></td>
-        <td><%= planned_trip.updated_at %></td>
-        <td><%= planned_trip.user %></td>
-        <td><%= link_to 'Show', planned_trip %></td>
-        <td><%= link_to 'Edit', edit_planned_trip_path(planned_trip) %></td>
-        <td><%= link_to 'Destroy', planned_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', planned_trip, method: :destroy, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
