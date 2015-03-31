@@ -212,7 +212,7 @@
     </thead>
 
     <tbody>
-    <% PlannedTrip.all.each do |planned_trip| %>
+    <% PlannedTrip.where(user_id: session[:user_id]).each do |planned_trip| %>
         <tr>
           <td><%= planned_trip.start_loc %></td>
           <td><%= planned_trip.end_loc %></td>

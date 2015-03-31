@@ -138,18 +138,9 @@
 
     function calcRoute(e) {
         e.preventDefault();
+
         var start = document.getElementById('start-loc').value;
         var end = document.getElementById('destination-loc').value;
-
-        $.ajax({
-            url: "<%= url_for :controller=>'planned_trips', :action=>'create' %>", // Route to the PlannedTrip Controller
-            type: "POST",
-            dataType: "json",
-            data: { start_location: start, end_location: end }, // This goes to Controller in params hash, i.e. params[:file_name]
-            complete: function() {},
-            success: function() {},
-            error: function() {}
-        });
 
         var request = {
             origin:start,
@@ -164,6 +155,21 @@
 
         $('#trip-modal').closeModal();
 
+    }
+
+    function addToHistory() {
+        var start = document.getElementById('start-loc').value;
+        var end = document.getElementById('destination-loc').value;
+
+        $.ajax({
+            url: "<%= url_for :controller=>'planned_trips', :action=>'create' %>", // Route to the PlannedTrip Controller
+            type: "POST",
+            dataType: "json",
+            data: { start_location: start, end_location: end }, // This goes to Controller in params hash, i.e. params[:file_name]
+            complete: function() {},
+            success: function() {},
+            error: function() {}
+        });
     }
 
     function prepareTripPlanner() {
@@ -256,8 +262,22 @@
     document.getElementById('search-field').addEventListener('submit', performSearch);
     document.getElementById('location-form').addEventListener('submit', processForm);
     document.getElementById('location-submit').addEventListener('click', processForm);
-    document.getElementById('trip-form').addEventListener('submit', calcRoute);
-    document.getElementById('trip-submit').addEventListener('click', calcRoute);
+    document.getElementById('trip-form').addEventListener('submit', function() {
+        '<% if logged_in? %>'
+        addToHistory();
+        calcRoute(event);
+        '<% else %>'
+        calcRoute(event);
+        '<% end %>'
+    });
+    document.getElementById('trip-submit').addEventListener('click', function() {
+        '<% if logged_in? %>'
+        addToHistory();
+        calcRoute(event);
+        '<% else %>'
+        calcRoute(event);
+        '<% end %>'
+    });
     document.getElementById('trip-planner').addEventListener('click', prepareTripPlanner);
     document.getElementById('select-past-trips').addEventListener('click', function() {
         $('#trip-modal').closeModal();
