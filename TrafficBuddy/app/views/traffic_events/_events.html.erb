@@ -9,7 +9,16 @@
                     <span class="card-title" style="line-height: 32px;">
                         <%= t.title %>
                     </span>
-                    <p><%= t.content %></p>
+                    <p><%= t.content %>
+                    <br>
+                      <%= social_share_button_tag("Be sure to avoid " + t.title + ". Find out more from:",
+                                                  :popup => "true",
+                                                  :url => "http://trafficbuddy.com",
+                                                  :image => "https://cdn2.iconfinder.com/data/icons/picons-basic-2/57/basic2-185_traffic_cone-128.png",
+                                                  desc: "TrafficBuddy, never get stuck in traffic again!",
+                                                  via: "TrafficBuddy") %>
+
+                    </p>
                 </div>
             </div>
         </div>
