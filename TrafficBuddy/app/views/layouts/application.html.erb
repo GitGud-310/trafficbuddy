@@ -165,7 +165,7 @@
 </div>
 
 <!-- Modal Structure for trip planning -->
-<div id="trip-modal2" class="modal">
+<div id="trip-modal" class="modal">
     <div class="modal-content">
         <h4>
             <span class="red-text text-darken-4">Plan a Trip</span>
@@ -197,39 +197,6 @@
 </div>
 
 <!-- Modal Structure for trip planning -->
-<div id="trip-modal" class="modal">
-  <div class="modal-content">
-    <h4>
-      <span class="red-text text-darken-4">Plan a Trip</span>
-    </h4>
-    <div class="row">
-      <%= form_for(PlannedTrip.create) do |p| %>
-          <p>
-            <%= p.label :Location %><br />
-            <%= p.text_field :start_loc %>
-          </p>
-          <p>
-            <%= p.label :Destination%><br />
-            <%= p.text_area :end_loc %>
-          </p>
-          <p>
-            <%= p.submit  %>
-          </p>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="modal-footer">
-    <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="trip-submit">Plan</a>
-    <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="select-past-trips">Or select from a list of past trips</a>
-    <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Cancel</a>
-  </div>
-</div>
-
-
-
-
-<!-- Modal Structure for trip planning -->
 <div id="past-trips-modal" class="modal">
   <div class="modal-content">
     <h4>
@@ -250,7 +217,7 @@
           <td><%= planned_trip.start_loc %></td>
           <td><%= planned_trip.end_loc %></td>
           <td><%= planned_trip.created_at %></td>
-          <td><%= link_to 'Destroy', planned_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete', planned_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
     <% end %>
     </tbody>

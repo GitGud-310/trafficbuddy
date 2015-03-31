@@ -141,6 +141,15 @@
         var start = document.getElementById('start-loc').value;
         var end = document.getElementById('destination-loc').value;
 
+        $.ajax({
+            url: "<%= url_for :controller=>'planned_trips', :action=>'create' %>", // Route to the PlannedTrip Controller
+            type: "POST",
+            dataType: "json",
+            data: { start_location: start, end_location: end }, // This goes to Controller in params hash, i.e. params[:file_name]
+            complete: function() {},
+            success: function() {},
+            error: function() {}
+        });
 
         var request = {
             origin:start,
@@ -242,6 +251,7 @@
     }
 
     mapLayer(map);
+
 
     document.getElementById('search-field').addEventListener('submit', performSearch);
     document.getElementById('location-form').addEventListener('submit', processForm);
