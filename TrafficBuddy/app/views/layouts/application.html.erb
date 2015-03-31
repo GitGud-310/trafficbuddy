@@ -191,7 +191,7 @@
 
     <div class="modal-footer">
       <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="trip-submit">Plan</a>
-      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="select-past-trips">Or select from a list of past trips</a>
+      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="select-past-trips">Select from a list of planned trips</a>
       <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Cancel</a>
     </div>
 </div>
@@ -208,6 +208,7 @@
       <th>End loc</th>
       <th>Planned on</th>
       <th colspan="3"></th>
+      <th colspan="3"></th>
     </tr>
     </thead>
 
@@ -217,6 +218,7 @@
           <td><%= planned_trip.start_loc %></td>
           <td><%= planned_trip.end_loc %></td>
           <td><%= planned_trip.created_at %></td>
+          <td><a href = ></td>
           <td><%= link_to 'Delete', planned_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
     <% end %>
@@ -226,7 +228,7 @@
 
   <div class="modal-footer">
     <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="trip-submit">Plan</a>
-    <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="switch-trip-planner">Or select from a list of past trips</a>
+    <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="switch-trip-planner">Search for a new route</a>
     <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Cancel</a>
   </div>
 </div>
