@@ -287,7 +287,14 @@
     document.getElementById('search-field').addEventListener('submit', performSearch);
     document.getElementById('location-form').addEventListener('submit', processForm);
     document.getElementById('location-submit').addEventListener('click', processForm);
-    document.getElementById('trip-form').addEventListener('submit', function() {
+    document.getElementById('trip-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if (document.getElementById('start-loc').value == "" || document.getElementById('destination-loc').value == "") {
+            return;
+        }
+
+
         <% if logged_in? %>
             addToHistory();
             calcRoute(event);
@@ -295,7 +302,14 @@
             calcRoute(event);
         <% end %>
     });
-    document.getElementById('trip-submit').addEventListener('click', function() {
+    document.getElementById('trip-submit').addEventListener('click', function(e) {
+        e.preventDefault();
+
+        if (document.getElementById('start-loc').value == "" || document.getElementById('destination-loc').value == "") {
+            toast('Please fill out both fields!', 2000)
+            return;
+        }
+
         <% if logged_in? %>
             addToHistory();
             calcRoute(event);
@@ -332,5 +346,11 @@
     }
 
     $('.planned-trip-row').click(plotRoute);
+
+    $(document).ready(function() {
+        $('#select-past-trips').click(function() {
+            $('.select-past-trips').leanModal();
+        });
+    });
 
 </script>
