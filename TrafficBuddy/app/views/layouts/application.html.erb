@@ -83,6 +83,8 @@
                     <li class="no-hover"><!-- Modal Trigger for alternative location--><a class="waves-effect waves-light btn modal-trigger" href="#modal2">Location</a></li>
                     <li class="no-hover"><!-- Modal Trigger for trip planning --><a class="waves-effect waves-light btn modal-trigger" href="#trip-modal" id="trip-planner">Plan a Trip</a></li>
                     <li class="no-hover"><a class="blue button-collapse btn" href="#" data-activates="slide-out"><i class="mdi-navigation-menu"></i></a></li>
+                    <li class="no-hover"><a class="blue button-collapse btn" href="#" data-activates="slide-out"><i class="mdi-navigation-menu"></i></a></li>
+
                 </ul>
             </div>
         </div>
@@ -178,12 +180,15 @@
         <% end %>
         <div class="row">
           <form class="col s12" id="trip-form">
+            <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Drop Me!</a>
+
             <div class="input-field col s12">
               <input name="Starting Location" id="start-loc" type="text" class="validate" placeholder="">
               <label for="start-loc">
                 <span class="grey-text text-darken-4">Starting Location</span>
               </label>
             </div>
+
             <div class="input-field col s12">
               <input name="Destination Location" id="destination-loc" type="text" class="validate" placeholder="">
               <label for="destination-loc">
