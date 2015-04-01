@@ -255,32 +255,47 @@
             searchBox.setBounds(bounds);
         });
 
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        directionsDisplay.setMap(map);
+    }
 
+    mapLayer(map);
 
+    document.getElementById('search-field').addEventListener('submit', performSearch);
+    document.getElementById('location-form').addEventListener('submit', processForm);
+    document.getElementById('location-submit').addEventListener('click', processForm);
+    document.getElementById('trip-form').addEventListener('submit', calcRoute);
+    document.getElementById('trip-submit').addEventListener('click', calcRoute);
+    google.maps.event.addDomListener(window, 'load', function() {
+        initialize('search-query');
+        initialize('start-loc');
+        initialize('destination-loc');
+        webcamInit();
+    });
+    $('.traffic-card').click(centerMapCardClick);
+
+    function webcamInit() {
         $.get('/webcams.kml', function(r) {
             webcams = toGeoJSON.kml(r).features;
             webcams.forEach(function(e) {
                 var infowindow = new google.maps.InfoWindow({
-                    content: e.properties.description
+                    content: e.properties.description.substring(4, e.properties.description.length) // remove <br> at beginning
                 });
 
                 var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(e.geometry.coordinates[0], e.geometry.coordinates[1]),
+                    position: new google.maps.LatLng(e.geometry.coordinates[1], e.geometry.coordinates[0]),
                     map: map,
+                    icon: 'http://google.github.io/material-design-icons/image/svg/ic_camera_alt_24px.svg',
                     title: e.properties.name
                 });
+
                 google.maps.event.addListener(marker, 'click', function() {
                     infowindow.open(map,marker);
                 });
             });
         });
-
-
-
-        directionsDisplay = new google.maps.DirectionsRenderer();
-        directionsDisplay.setMap(map);
     }
-
+    
     mapLayer(map);
 
 
