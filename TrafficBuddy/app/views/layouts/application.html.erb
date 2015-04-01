@@ -170,6 +170,12 @@
         <h4>
             <span class="red-text text-darken-4">Plan a Trip</span>
         </h4>
+        <% if logged_in? %>
+            <div class="row">
+                <h5 style="display: inline;">Or </h5><button class="waves-effect waves-light btn modal-action modal-close" id="select-past-trips">select a past trip</button>
+            </div>
+            <div class="divider"></div>
+        <% end %>
         <div class="row">
           <form class="col s12" id="trip-form">
             <div class="input-field col s12">
@@ -191,9 +197,6 @@
 
     <div class="modal-footer">
       <a href="#" class="waves-effect waves-green btn-flat modal-action" id="trip-submit">Plan</a>
-      <% if logged_in? %>
-        <a href="#past-trips-modal" class="waves-effect waves-green btn-flat select-past-trips" id="select-past-trips">Select from a list of planned trips</a>
-      <% end %>
       <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Cancel</a>
     </div>
 </div>
@@ -205,14 +208,18 @@
       <span class="red-text text-darken-4">Select a Past Trip</span>
     </h4>
 
+    <div class="row">
+      <h5 style="display: inline;">Or </h5><button class="waves-effect waves-light btn modal-action modal-close" id="switch-trip-planner">plan a trip</button>
+    </div>
+    <div class="divider"></div>
     <table>
     <thead>
-        <tr>
-          <th>Start loc</th>
-          <th>End loc</th>
-          <th>Planned on</th>
-          <th colspan="3"></th>
-        </tr>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Planned on</th>
+      <th colspan="3"></th>
+    </tr>
     </thead>
     <tbody>
 
@@ -229,8 +236,7 @@
   </div>
 
   <div class="modal-footer">
-    <%= link_to 'DELETE ALL', planned_trips_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <a href="#" class="waves-effect waves-green btn-flat modal-action" id="switch-trip-planner">Search for a new route</a>
+    <%= link_to 'DELETE ALL', planned_trips_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-red red-text text-darken-4 btn-flat modal-action left" %>
     <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Cancel</a>
   </div>
 </div>
