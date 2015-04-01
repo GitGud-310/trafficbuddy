@@ -161,7 +161,7 @@
 
             <ul id="dropdown1" class="dropdown-content">
               <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
-                  <li class="start-dropdown" data-end="<%= b.name %>"><a href="#!"><%= b.name %></a></li>
+                  <li class="start-dropdown" data-start="<%= b.name %>"><a href="#!"><%= b.name %></a></li>
                   <li class="divider"></li>
                <% end %>
             </ul>
