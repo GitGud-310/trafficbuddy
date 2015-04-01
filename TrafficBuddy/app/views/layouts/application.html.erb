@@ -215,13 +215,13 @@
 
     <tbody>
     <% PlannedTrip.where(user_id: session[:user_id]).each do |planned_trip| %>
-        <tr>
+        <tr class="planned-trip-row" data-start="<%= planned_trip.start_loc %>" data-end="<%= planned_trip.end_loc %>" style="cursor: pointer;">>
           <td><%= planned_trip.start_loc %></td>
           <td><%= planned_trip.end_loc %></td>
           <td><%= planned_trip.created_at %></td>
-          <td><%= link_to 'DELETE', planned_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="waves-effect"><%= link_to 'DELETE', planned_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
-    <% end %>
+<% end %>
     </tbody>
   </table>
   </div>

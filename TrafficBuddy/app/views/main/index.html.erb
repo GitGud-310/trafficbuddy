@@ -161,6 +161,26 @@
 
     }
 
+
+    function plotRoute(e) {
+        var start = $(this).data('start');
+        var end = $(this).data('end');
+
+        var request = {
+            origin:start,
+            destination:end,
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+        directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+            }
+        });
+
+        $('#past-trips-modal').closeModal();
+
+    }
+
     function addToHistory() {
         var start = document.getElementById('start-loc').value;
         var end = document.getElementById('destination-loc').value;
@@ -303,10 +323,14 @@
         initialize('destination-loc');
         initialize('new_location');
     });
+
     $('.traffic-card').click(centerMapCardClick);
 
     function centerMapCardClick(e) {
         map.panTo(new google.maps.LatLng($(this).data('lat'), $(this).data('lon')));
         map.setZoom(17);
     }
+
+    $('.planned-trip-row').click(plotRoute);
+
 </script>
