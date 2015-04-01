@@ -1,5 +1,9 @@
 class BookmarkedLocationsController < ApplicationController
 
+  def index
+    @bookmarked_location = BookmarkedLocation.all
+  end
+
   def new
     @bookmarked_location = BookmarkedLocation.new
   end

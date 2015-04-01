@@ -65,7 +65,6 @@
             <div class="row">
                 <ul id="nav" class="col s10 offset-s2">
                     <li><%= link_to 'Traffic Events', controller: 'traffic_events' %></li>
-                    <li><a href="#">Favourites</a></li>
                       <li>
                         <form id="search-field">
                           <div class="input-field">
@@ -80,6 +79,7 @@
                         <li class="no-hover"><%= link_to 'Login', sessions_new_path, class: 'btn waves-effect waves-light' %></li>
                         <li class="no-hover"><%= link_to 'Sign Up', new_user_path, class:'btn waves-effect waves-light no-hover' %></li>
                     <% end %>
+                    <li class="no-hover"><!-- Modal Trigger for Bookmarked Locations--><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Favourites</a></li>
                     <li class="no-hover"><!-- Modal Trigger for alternative location--><a class="waves-effect waves-light btn modal-trigger" href="#modal2">Location</a></li>
                     <li class="no-hover"><a class="blue button-collapse btn" href="#" data-activates="slide-out"><i class="mdi-navigation-menu"></i></a></li>
                     <%= social_share_button_tag("Check out TrafficBuddy!", 
@@ -99,38 +99,10 @@
 </ul>
 
 
-<!-- Modal Structure for Login: Currently disabled-->
+<!-- Modal Structure for Bookmarked Locations-->
 <div id="modal1" class="modal">
     <div class="modal-content">
-        <h4>
-            <span class="red-text text-darken-4">Login</span>
-        </h4>
-        <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="first_name" type="text" class="validate">
-                        <label for="first_name">
-                            <span class="grey-text text-darken-4">Name</span>
-                        </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
-                        <label for="password">
-                            <span class="grey-text text-darken-4">Password</span>
-                        </label>
-                    </div>
-                    <div class="row">
-                        <p>
-                            <input type="checkbox" id="test5" />
-                            <label for="test5">Keep me logged in.</label>
-                        </p>
-                    </div>
-                </div>
-            </form>
-        </div>
+    <%= render 'bookmarked_locations/index' %>
     </div>
 
     <div class="modal-footer">
