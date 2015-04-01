@@ -139,6 +139,7 @@
     function calcRoute(e) {
         e.preventDefault();
 
+        utils.loaderOverlay();
         for (var i = 0, marker; marker = markers[i]; i++) {
             marker.setMap(null);
         }
@@ -155,6 +156,7 @@
             if (status == google.maps.DirectionsStatus.OK) {
                 directionsDisplay.setDirections(response);
             }
+            utils.loaderOverlayDone();
         });
 
         $('#trip-modal').closeModal();
@@ -295,7 +297,7 @@
             });
         });
     }
-    
+
     mapLayer(map);
 
 
