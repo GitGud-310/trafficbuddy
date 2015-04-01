@@ -196,7 +196,7 @@
     </div>
 
     <div class="modal-footer">
-      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="trip-submit">Plan</a>
+      <a href="#" class="waves-effect waves-green btn-flat modal-action" id="trip-submit">Plan</a>
       <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Cancel</a>
     </div>
 </div>
@@ -207,6 +207,7 @@
     <h4>
       <span class="red-text text-darken-4">Select a Past Trip</span>
     </h4>
+
     <div class="row">
       <h5 style="display: inline;">Or </h5><button class="waves-effect waves-light btn modal-action modal-close" id="switch-trip-planner">plan a trip</button>
     </div>
@@ -220,13 +221,13 @@
       <th colspan="3"></th>
     </tr>
     </thead>
-
     <tbody>
+
     <% PlannedTrip.where(user_id: session[:user_id]).each do |planned_trip| %>
-        <tr class="planned-trip-row" data-start="<%= planned_trip.start_loc %>" data-end="<%= planned_trip.end_loc %>" style="cursor: pointer;">>
-          <td><%= planned_trip.start_loc %></td>
-          <td><%= planned_trip.end_loc %></td>
-          <td><%= planned_trip.created_at %></td>
+        <tr class="planned-trip-row" data-start="<%= planned_trip.start_loc%>" data-end="<%= planned_trip.end_loc%>" style="cursor: pointer;">
+          <td> <%= planned_trip.start_loc %> </td>
+          <td> <%= planned_trip.end_loc %> </td>
+          <td> <%= planned_trip.created_at %> </td>
           <td class="waves-effect"><%= link_to 'DELETE', planned_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
     <% end %>
@@ -236,7 +237,6 @@
 
   <div class="modal-footer">
     <%= link_to 'DELETE ALL', planned_trips_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-red red-text text-darken-4 btn-flat modal-action left" %>
-    <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="trip-submit">Plan</a>
     <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Cancel</a>
   </div>
 </div>
