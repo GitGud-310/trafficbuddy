@@ -157,11 +157,21 @@
         <% end %>
         <div class="row">
           <form class="col s12" id="trip-form">
-            <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Drop Me!</a>
+            <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Select from Favourites!</a>
 
             <ul id="dropdown1" class="dropdown-content">
               <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
-                  <li><a href="#!"><%= b.name %></a></li>
+                  <li class="start-dropdown" data-end="<%= b.name %>"><a href="#!"><%= b.name %></a></li>
+                  <li class="divider"></li>
+               <% end %>
+            </ul>
+
+            <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Select from Favourites!</a>
+
+            <ul id="dropdown2" class="dropdown-content">
+              <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
+                  <li class="end-dropdown" data-end="<%= b.name %>"><a href="#!"><%= b.name %></a></li>
+                  <li class="divider"></li>
               <% end %>
             </ul>
 

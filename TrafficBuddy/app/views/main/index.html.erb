@@ -268,7 +268,16 @@
     function prepareTripPlanner() {
         $('#destination-loc').focus();
         document.getElementById('destination-loc').value = document.getElementById('search-query').value;
+    }
 
+    function setStart() {
+        var start = $(this).data('start');
+        document.getElementById('start-loc').value = start;
+    }
+
+    function setEnd() {
+        var end = $(this).data('end');
+        document.getElementById('dest-loc').value = end;
     }
 
     function initialize(field) {
@@ -418,8 +427,9 @@
     }
 
     $('.planned-trip-row').click(plotRoute);
-    $(".dropdown-button").dropdown( { hover: false });
-
+    $('.dropdown-button').dropdown( { hover: false });
+    $('.start-dropdown').click(setStart);
+    $('.end-dropdown').click(setEnd);
 
 
 </script>
