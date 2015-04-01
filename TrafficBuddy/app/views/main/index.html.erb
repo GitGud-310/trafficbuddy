@@ -33,6 +33,9 @@
     var marker;
     var openWindow;
     var markers = [];
+    var markerForStep;
+    var markersForStep = [];
+    var stepDisplay = new google.maps.InfoWindow();
 
     var webcams;
 
@@ -152,9 +155,15 @@
             destination:end,
             travelMode: google.maps.TravelMode.DRIVING
         };
+
+        for (var i = 0; i < markersForStep.length; i++) {
+            markersForStep[i].setMap(null);
+        }
+
         directionsService.route(request, function(response, status) {
             if (status == google.maps.DirectionsStatus.OK) {
                 directionsDisplay.setDirections(response);
+                showSteps(response);
             }
             utils.loaderOverlayDone();
         });
@@ -173,14 +182,43 @@
             destination:end,
             travelMode: google.maps.TravelMode.DRIVING
         };
+
+        for (var i = 0; i < markersForStep.length; i++) {
+            markersForStep[i].setMap(null);
+        }
+
         directionsService.route(request, function(response, status) {
             if (status == google.maps.DirectionsStatus.OK) {
                 directionsDisplay.setDirections(response);
+                showSteps(response);
             }
         });
 
         $('#past-trips-modal').closeModal();
 
+    }
+
+    function showSteps(directionResult) {
+
+        var myRoute = directionResult.routes[0].legs[0];
+        var image = 'images/step_icon.png';
+
+        for (var i = 0; i < myRoute.steps.length; i++) {
+            var marker = new google.maps.Marker({
+                position: myRoute.steps[i].start_location,
+                map: map,
+                icon: image
+            });
+            attachInstructionText(marker, myRoute.steps[i].instructions);
+            markersForStep[i] = marker;
+        }
+    }
+
+    function attachInstructionText(marker, text) {
+        google.maps.event.addListener(marker, 'click', function() {
+            stepDisplay.setContent(text);
+            stepDisplay.open(map, marker);
+        });
     }
 
     function addToHistory() {
