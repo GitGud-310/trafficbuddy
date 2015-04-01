@@ -13,6 +13,17 @@
 
 ActiveRecord::Schema.define(version: 20150330050936) do
 
+  create_table "bookmarked_locations", force: true do |t|
+    t.string   "name"
+    t.decimal  "latitude",   precision: 15, scale: 10, default: 0.0
+    t.decimal  "longitude",  precision: 15, scale: 10, default: 0.0
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bookmarked_locations", ["user_id"], name: "index_bookmarked_locations_on_user_id", using: :btree
+
   create_table "lat_lons", force: true do |t|
     t.decimal  "latitude",         precision: 15, scale: 10, default: 0.0
     t.decimal  "longitude",        precision: 15, scale: 10, default: 0.0

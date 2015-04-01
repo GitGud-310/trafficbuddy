@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   resources :traffic_events
+  resources :bookmarked_locations
+
+  post 'bookmarked_locations/create' => 'bookmarked_locations#create'
 
   # get 'sessions/new'
   # root                'users#new'

@@ -38,6 +38,7 @@
     var stepDisplay = new google.maps.InfoWindow();
 
     var webcams;
+    var infoWindow;
 
     function centerMap(latLng) {
         map.panTo(latLng);
@@ -74,7 +75,35 @@
         return false;
     }
 
+    function generateInfoWindow(searchQuery) {
+        infoWindow = new google.maps.InfoWindow({
+            content: '<a class="waves-effect waves-light btn" onclick="createBookmark()"><i class="mdi-file-favorite left"></i>Bookmark this location!</a><br>' + '<%= flash[:notice] %>'
+        });
+        google.maps.event.addListener(marker, 'click', function () {
+            infoWindow.open(map, marker);
+        });
+        google.maps.event.addListener(map, 'click', function () {
+            if (infoWindow)
+                infoWindow.close();
 
+        });
+        google.maps.event.addListener(map, 'drag', function() {
+            if (infoWindow)
+                infoWindow.close();
+
+        });
+    }
+
+    function createBookmark() {
+        $.ajax({
+            url:    '/bookmarked_locations/create',
+            type:   'post',
+            data:   {name:'Location',
+                    latitude: marker.position.lat(),
+                    longitude: marker.position.lng()
+            }
+        });
+    }
 
     function mapLayer(map) {
         var trafficLayer = new google.maps.TrafficLayer();
