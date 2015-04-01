@@ -151,42 +151,43 @@
         </h4>
         <% if logged_in? %>
             <div class="row">
-                <h5 style="display: inline;">Or </h5><button class="waves-effect waves-light btn modal-action modal-close" id="select-past-trips">select a past trip</button>
+                <button class="waves-effect waves-light btn modal-action modal-close" id="select-past-trips">or select a past trip</button>
             </div>
             <div class="divider"></div>
         <% end %>
         <div class="row">
           <form class="col s12" id="trip-form">
-            <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Select from Favourites!</a>
-
-            <ul id="dropdown1" class="dropdown-content">
-              <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
-                  <li class="start-dropdown" data-start="<%= b.name %>"><a href="#!"><%= b.name %></a></li>
-                  <li class="divider"></li>
-               <% end %>
-            </ul>
-
-            <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Select from Favourites!</a>
-
-            <ul id="dropdown2" class="dropdown-content">
-              <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
-                  <li class="end-dropdown" data-end="<%= b.name %>"><a href="#!"><%= b.name %></a></li>
-                  <li class="divider"></li>
-              <% end %>
-            </ul>
-
-            <div class="input-field col s12">
+            <div class="input-field col s8">
               <input name="Starting Location" id="start-loc" type="text" class="validate" placeholder="">
               <label for="start-loc">
                 <span class="grey-text text-darken-4">Starting Location</span>
               </label>
             </div>
+            <div class="col s4" style="position: relative;">
+                <a style="bottom: 0; position: relative;" class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Select from Favourites</a>
 
-            <div class="input-field col s12">
+                <ul id="dropdown1" class="dropdown-content">
+                    <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
+                        <li class="start-dropdown" data-start="<%= b.name %>"><a href="#!"><%= b.name %></a></li>
+                        <li class="divider"></li>
+                    <% end %>
+                </ul>
+            </div>
+            <div class="input-field col s8">
               <input name="Destination Location" id="destination-loc" type="text" class="validate" placeholder="">
               <label for="destination-loc">
                 <span class="grey-text text-darken-4">Destination Location</span>
               </label>
+            </div>
+            <div class="col s4">
+                <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Select from Favourites</a>
+
+                <ul id="dropdown2" class="dropdown-content">
+                    <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
+                        <li class="end-dropdown" data-end="<%= b.name %>"><a href="#!"><%= b.name %></a></li>
+                        <li class="divider"></li>
+                    <% end %>
+                </ul>
             </div>
             <input type="submit" style="display:none;">
           </form>
@@ -207,7 +208,7 @@
     </h4>
 
     <div class="row">
-      <h5 style="display: inline;">Or </h5><button class="waves-effect waves-light btn modal-action modal-close" id="switch-trip-planner">plan a trip</button>
+      <button class="waves-effect waves-light btn modal-action modal-close" id="switch-trip-planner">or plan a trip</button>
     </div>
     <div class="divider"></div>
     <table>

@@ -344,10 +344,11 @@
 
     function webcamInit() {
         $.get('/webcams.kml', function(r) {
+            var re = /http:\/\/former\.vancouver\.ca\/engsvcs\/streets\/roadwork\/.*\.htm/;
             webcams = toGeoJSON.kml(r).features;
             webcams.forEach(function(e) {
                 var infowindow = new google.maps.InfoWindow({
-                    content: e.properties.description.substring(4, e.properties.description.length) // remove <br> at beginning
+                    content: "<iframe style='width: 650px; height: 600px;' src='" + e.properties.description.match(re)[0] + "'></iframe>" //e.properties.description.substring(4, e.properties.description.length) // remove <br> at beginning
                 });
 
                 var marker = new google.maps.Marker({
