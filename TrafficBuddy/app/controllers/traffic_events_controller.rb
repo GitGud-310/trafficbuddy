@@ -1,7 +1,8 @@
 class TrafficEventsController < ApplicationController
-  include TrafficEventsHelper
+  include TrafficEventsHelper, ApplicationHelper
 
   def index
+    get_api_key
     @traffic_events = TrafficEvent.all
   end
 
