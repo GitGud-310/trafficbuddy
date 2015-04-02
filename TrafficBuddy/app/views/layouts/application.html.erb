@@ -84,7 +84,6 @@
                     <% end %>
                     <li class="no-hover"><!-- Modal Trigger for alternative location--><a class="waves-effect waves-light btn modal-trigger" href="#modal2">Location</a></li>
                     <li class="no-hover"><!-- Modal Trigger for trip planning --><a class="waves-effect waves-light btn modal-trigger" href="#trip-modal" id="trip-planner">Plan a Trip</a></li>
-                    <li class="no-hover"><a class="blue button-collapse btn" href="#" data-activates="slide-out"><i class="mdi-navigation-menu"></i></a></li>
                   <%= social_share_button_tag("Check out TrafficBuddy!",
                                                 :popup => "true", 
                                                 :url => "http://trafficbuddy.com", 
@@ -96,7 +95,7 @@
         </div>
     </nav>
 </div>
-
+<a class="button-collapse btn" style="background: none; -webkit-box-shadow: none; box-shadow: none; border: none; color: #aaa; z-index: 9999; position: fixed; top: 0; right: 0; height: 64px; line-height: 64px;" href="#" data-activates="slide-out"><i class="mdi-navigation-menu"></i></a>
 <ul id="slide-out" class="s3 side-nav">
  <%= render 'traffic_events/events' %>
 </ul>
