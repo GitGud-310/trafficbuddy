@@ -218,10 +218,10 @@
     <tbody>
 
     <% PlannedTrip.where(user_id: session[:user_id]).each do |planned_trip| %>
-        <tr class="planned-trip-row" data-start="<%= planned_trip.start_loc%>" data-end="<%= planned_trip.end_loc%>" style="cursor: pointer;">
-          <td> <%= planned_trip.start_loc %> </td>
-          <td> <%= planned_trip.end_loc %> </td>
-          <td> <%= planned_trip.created_at %> </td>
+        <tr style="cursor: pointer;">
+          <td class="planned-trip-row" data-start="<%= planned_trip.start_loc%>" data-end="<%= planned_trip.end_loc%>"> <%= planned_trip.start_loc %> </td>
+          <td class="planned-trip-row" data-start="<%= planned_trip.start_loc%>" data-end="<%= planned_trip.end_loc%>"> <%= planned_trip.end_loc %> </td>
+          <td class="planned-trip-row" data-start="<%= planned_trip.start_loc%>" data-end="<%= planned_trip.end_loc%>"> <%= planned_trip.created_at %> </td>
           <td class="waves-effect"><%= link_to 'DELETE', planned_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
     <% end %>
@@ -255,10 +255,10 @@
       <tbody>
 
       <% BookmarkedLocation.where(user_id: session[:user_id]).each do |bookmarked_loc| %>
-          <tr class="bookmark-item" data-lat="<%= bookmarked_loc.latitude %>" data-lon="<%= bookmarked_loc.longitude %>">
-            <td> <%= bookmarked_loc.name %> </td>
-            <td> <%= bookmarked_loc.latitude %> </td>
-            <td> <%= bookmarked_loc.longitude %> </td>
+          <tr style="cursor: pointer;">
+            <td class="bookmark-item" data-lat="<%= bookmarked_loc.latitude %>" data-lon="<%= bookmarked_loc.longitude %>"> <%= bookmarked_loc.name %> </td>
+            <td class="bookmark-item" data-lat="<%= bookmarked_loc.latitude %>" data-lon="<%= bookmarked_loc.longitude %>"> <%= bookmarked_loc.latitude %> </td>
+            <td class="bookmark-item" data-lat="<%= bookmarked_loc.latitude %>" data-lon="<%= bookmarked_loc.longitude %>"> <%= bookmarked_loc.longitude %> </td>
             <td class="waves-effect"><%= link_to 'DELETE', bookmarked_loc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
       <% end %>
