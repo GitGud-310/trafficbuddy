@@ -480,7 +480,7 @@
             calcRoute(event);
         <% end %>
     });
-    document.getElementById('trip-planner').addEventListener('click', prepareTripPlanner);
+    $('#trip-planner').click(prepareTripPlanner);
 
     <% if logged_in? %>
         document.getElementById('select-past-trips').addEventListener('click', function() {
