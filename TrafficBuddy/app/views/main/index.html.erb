@@ -94,19 +94,36 @@
     
 
     function createBookmark(e) {
+        var title = $(this).data('title');
+        var latitude = $(this).data('lat');
+        var longitude = $(this).data('lon');
+
         '<% if logged_in? %>'
             toast("Successfully bookmarked!", 2000);
         '<% else %>'
             toast("Sorry, you need to log in to use this feature.", 2000);
+        return;
         '<% end %>'
         $.ajax({
             url:    '/bookmarked_locations/create',
             type:   'post',
-            data:   {name: $(this).data('title'),
-                    latitude: $(this).data('lat'),
-                    longitude: $(this).data('lon')
+            data:   {name: title,
+                    latitude: latitude,
+                    longitude: longitude
             }
         });
+
+
+        var li = '<li class="collection-item avatar" data-lat="' + latitude + '" data-lon="' + longitude + '">';
+        li += '<span class="title">' + title + '</span>';
+        li += '<p>' + latitude + '<br>';
+        li += longitude;
+        li += '</li>';
+
+
+        $('#bookmark-list ul').append(li);
+
+
     }
 
     function mapLayer(map) {
