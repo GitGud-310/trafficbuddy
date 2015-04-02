@@ -306,8 +306,12 @@
     }
 
     function prepareTripPlanner() {
+        if (document.getElementById('search-query').value == "")
+            return;
+
         $('#destination-loc').focus();
         document.getElementById('destination-loc').value = document.getElementById('search-query').value;
+        $('#destination-loc-label').addClass('active');
     }
 
     function setStart() {
