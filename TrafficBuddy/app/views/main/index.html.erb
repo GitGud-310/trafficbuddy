@@ -472,10 +472,11 @@
     });
 
     $('.traffic-card').click(centerMapCardClick);
-    $('.collection-item').click(centerMapCardClick);
+    $('.bookmark-item').click(centerMapCardClick);
     function centerMapCardClick(e) {
         map.panTo(new google.maps.LatLng($(this).data('lat'), $(this).data('lon')));
         map.setZoom(17);
+        $('#bookmarked_locations-modal').closeModal();
     }
 
     $('.planned-trip-row').click(plotRoute);

@@ -255,7 +255,7 @@
       <tbody>
 
       <% BookmarkedLocation.where(user_id: session[:user_id]).each do |bookmarked_loc| %>
-          <tr>
+          <tr class="bookmark-item" data-lat="<%= bookmarked_loc.latitude %>" data-lon="<%= bookmarked_loc.longitude %>">
             <td> <%= bookmarked_loc.name %> </td>
             <td> <%= bookmarked_loc.latitude %> </td>
             <td> <%= bookmarked_loc.longitude %> </td>
