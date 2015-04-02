@@ -74,28 +74,9 @@
         e.preventDefault();
         return false;
     }
-
-    function generateInfoWindow(m) {
-        infoWindow = new google.maps.InfoWindow({
-            content: '<a class="waves-effect waves-light btn" onclick="createBookmark(' + m + ')"><i class="mdi-file-favorite left"></i>Bookmark this location!</a><br>' + '<%= flash[:notice] %>'
-        });
-        google.maps.event.addListener(m, 'click', function () {
-            infoWindow.open(map, m);
-        });
-        google.maps.event.addListener(map, 'click', function () {
-            if (infoWindow)
-                infoWindow.close();
-
-        });
-        google.maps.event.addListener(map, 'drag', function() {
-            if (infoWindow)
-                infoWindow.close();
-
-        });
-    }
+    
 
     function createBookmark(e) {
-        alert($(this).data('title'));
         $.ajax({
             url:    '/bookmarked_locations/create',
             type:   'post',
@@ -350,21 +331,10 @@
         directionsDisplay.setMap(map);
     }
 
-    function openInfoWindow( marker ){
-        var title = marker.getTitle();
-        var contentString = $('<a class="waves-effect waves-light btn" onclick="createBookmark()" data-lat='+ marker.position.lat() +'data-lon='+marker.position.lng()+'data-title='+marker.getTitle()+'><i class="mdi-file-favorite left"></i>Bookmark '+title+'</a><br>');
-        if(infoWindow){
-            infoWindow.close();
-        }
-        infoWindow = new google.maps.InfoWindow;
-        infoWindow.setContent(contentString[0]);
-        infoWindow.open(map, marker);
-    }
 
     mapLayer(map);
 
 
-    $('.traffic-card').click(centerMapCardClick);
 
     function webcamInit() {
         $.get('/webcams.kml', function(r) {
