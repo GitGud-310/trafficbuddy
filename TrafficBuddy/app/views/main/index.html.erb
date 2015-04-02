@@ -127,13 +127,13 @@
         $('.bookmark-item').click(centerMapCardClick);
 
         var tr = '<li class="end-dropdown" data-end="' + title + '"><a href="#!" >' + title + '</a></li>';
-        var tr2 = '<li class="divider"></li>';
+        var tr2 = "<li class='divider'></li>";
 
-        $('#dropdown1 ul').append(tr);
-        $('#dropdown1 ul').append(tr2);
+        $('#dropdown1').append(tr);
+        $('#dropdown1').append(tr2);
 
-        $('#dropdown2 ul').append(tr);
-        $('#dropdown2 ul').append(tr2);
+        $('#dropdown2').append(tr);
+        $('#dropdown2').append(tr2);
     }
 
     function mapLayer(map) {
@@ -307,7 +307,6 @@
 
     function prepareTripPlanner() {
         $('#destination-loc').focus();
-        $('#destination-loc-label').addClass('active');
         document.getElementById('destination-loc').value = document.getElementById('search-query').value;
     }
 
