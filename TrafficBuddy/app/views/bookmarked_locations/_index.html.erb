@@ -6,11 +6,8 @@
   <span class="title"><%= t.name %></span>
   <p><%= t.latitude %> <br>
     <%= t.longitude %>
-
-    </p>
-  <%= link_to 'Destroy',  { action: :destroy, id: t.id }, data: { confirm: 'Are you sure?' }, :class => 'secondary-content' do%>
-      <i class="mdi-content-clear"></i>
-      <%end%>
+  <%= button_to 'delete', t, id: t.id,method: :delete, data: { confirm: 'Are you sure?' }, :class => 'secondary-content' %>
+  </p>
   </li>
   <% end %>
 </ul>

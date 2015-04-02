@@ -146,38 +146,44 @@
         <% end %>
         <div class="row">
           <form class="col s12" id="trip-form">
-            <div class="input-field col s8">
+            <div class="input-field <% if logged_in? %> col s8 <% end %>">
               <input name="Starting Location" id="start-loc" type="text" class="validate" placeholder="">
               <label for="start-loc">
                 <span class="grey-text text-darken-4">Starting Location</span>
               </label>
             </div>
-            <div class="col s4" style="position: relative;">
-                <a style="bottom: 0; position: relative;" class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Select from Favourites</a>
+            <% if logged_in? %>
+                <div class="col s4" style="position: relative;">
+                    <a style="bottom: 0; position: relative;" class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Select from Favourites</a>
 
-                <ul id="dropdown1" class="dropdown-content">
-                    <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
-                        <li class="start-dropdown" data-start="<%= b.name %>"><a href="#!"><%= b.name %></a></li>
-                        <li class="divider"></li>
-                    <% end %>
-                </ul>
-            </div>
-            <div class="input-field col s8">
+                    <ul id="dropdown1" class="dropdown-content">
+                        <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
+                            <li class="start-dropdown" data-start="<%= b.name %>"><a href="#!"><%= b.name %></a></li>
+                            <li class="divider"></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+
+            <div class="input-field <% if logged_in? %> col s8 <% end %>">
               <input name="Destination Location" id="destination-loc" type="text" class="validate" placeholder="">
               <label for="destination-loc">
                 <span class="grey-text text-darken-4">Destination Location</span>
               </label>
             </div>
-            <div class="col s4">
-                <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Select from Favourites</a>
+            <% if logged_in? %>
+                <div class="col s4">
+                  <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Select from Favourites</a>
 
-                <ul id="dropdown2" class="dropdown-content">
-                    <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
-                        <li class="end-dropdown" data-end="<%= b.name %>"><a href="#!"><%= b.name %></a></li>
-                        <li class="divider"></li>
-                    <% end %>
-                </ul>
-            </div>
+                    <ul id="dropdown2" class="dropdown-content">
+                        <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
+                            <li class="end-dropdown" data-end="<%= b.name %>"><a href="#!"><%= b.name %></a></li>
+                            <li class="divider"></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+
             <input type="submit" style="display:none;">
           </form>
         </div>
