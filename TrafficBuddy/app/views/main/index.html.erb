@@ -114,16 +114,25 @@
         });
 
 
-        var li = '<li class="collection-item avatar" data-lat="' + latitude + '" data-lon="' + longitude + '">';
-        li += '<span class="title">' + title + '</span>';
-        li += '<p>' + latitude + '<br>';
-        li += longitude;
-        li += '</li>';
+        <% @bookmark = BookmarkedLocation.where(user_id: current_user).last %>
 
+        var li = '<tr class="bookmark-item" data-lat="' + latitude + '" data-lon="' + longitude + '">';
+        li += '<td>' + title + '</td>';
+        li += '<td>' + latitude + '</td>';
+        li += '<td>' + longitude + '</td>';
+        li += '<td class="waves-effect"><%= link_to 'DELETE', @bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>'
+        li += '</tr>';
 
-        $('#bookmark-list ul').append(li);
+        $('#bookmark-list tr:last').after(li);
 
+        var tr = '<li class="end-dropdown" data-end="' + title + '"><a href="#!">' + title + '</a></li>';
+        var tr2 = '<li class="divider"></li>';
 
+        $('#dropdown1 ul').append(tr);
+        $('#dropdown1 ul').append(tr2);
+
+        $('#dropdown2 ul').append(tr);
+        $('#dropdown2 ul').append(tr2);
     }
 
     function mapLayer(map) {
