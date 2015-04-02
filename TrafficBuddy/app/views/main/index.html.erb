@@ -310,6 +310,7 @@
 
     function prepareTripPlanner() {
         $('#destination-loc').focus();
+        $('#destination-loc-label').addClass('active');
         document.getElementById('destination-loc').value = document.getElementById('search-query').value;
     }
 
@@ -322,7 +323,7 @@
     function setEnd() {
         var end = $(this).data('end');
         document.getElementById('destination-loc').value = end;
-        $('destination-loc-label').addClass('active');
+        $('#destination-loc-label').addClass('active');
     }
 
     function initialize(field) {
