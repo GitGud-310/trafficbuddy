@@ -206,7 +206,7 @@
       <button class="waves-effect waves-light btn modal-action modal-close" id="switch-trip-planner">or plan a trip</button>
     </div>
     <div class="divider"></div>
-    <table>
+    <table id="planned-trip-table">
     <thead>
     <tr>
       <th>Start</th>
@@ -260,7 +260,7 @@
             <td> <%= bookmarked_loc.latitude %> </td>
             <td> <%= bookmarked_loc.longitude %> </td>
             <td class="waves-effect"><%= link_to 'DELETE', bookmarked_loc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	  </tr>
+            </tr>
       <% end %>
       </tbody>
     </table>
