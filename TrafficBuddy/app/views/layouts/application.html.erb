@@ -147,7 +147,7 @@
           <form class="col s12" id="trip-form">
             <div class="input-field <% if logged_in? %> col s8 <% end %>">
               <input name="Starting Location" id="start-loc" type="text" class="validate" placeholder="">
-              <label for="start-loc">
+              <label id="start-loc-label" for="start-loc">
                 <span class="grey-text text-darken-4">Starting Location</span>
               </label>
             </div>
@@ -166,7 +166,7 @@
 
             <div class="input-field <% if logged_in? %> col s8 <% end %>">
               <input name="Destination Location" id="destination-loc" type="text" class="validate" placeholder="">
-              <label for="destination-loc">
+              <label id="destination-loc-label" for="destination-loc">
                 <span class="grey-text text-darken-4">Destination Location</span>
               </label>
             </div>

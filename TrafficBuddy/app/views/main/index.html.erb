@@ -316,11 +316,13 @@
     function setStart() {
         var start = $(this).data('start');
         document.getElementById('start-loc').value = start;
+        $('#start-loc-label').addClass('active');
     }
 
     function setEnd() {
         var end = $(this).data('end');
         document.getElementById('destination-loc').value = end;
+        $('destination-loc-label').addClass('active');
     }
 
     function initialize(field) {
