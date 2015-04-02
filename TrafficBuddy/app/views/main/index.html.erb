@@ -38,7 +38,7 @@
     var stepDisplay = new google.maps.InfoWindow();
 
     var webcams;
-    var infoWindow;
+    var infoWindow = new google.maps.InfoWindow();
 
     function centerMap(latLng) {
         map.panTo(latLng);
@@ -75,12 +75,12 @@
         return false;
     }
 
-    function generateInfoWindow(searchQuery) {
+    function generateInfoWindow(m) {
         infoWindow = new google.maps.InfoWindow({
-            content: '<a class="waves-effect waves-light btn" onclick="createBookmark()"><i class="mdi-file-favorite left"></i>Bookmark this location!</a><br>' + '<%= flash[:notice] %>'
+            content: '<a class="waves-effect waves-light btn" onclick="createBookmark(' + m + ')"><i class="mdi-file-favorite left"></i>Bookmark this location!</a><br>' + '<%= flash[:notice] %>'
         });
-        google.maps.event.addListener(marker, 'click', function () {
-            infoWindow.open(map, marker);
+        google.maps.event.addListener(m, 'click', function () {
+            infoWindow.open(map, m);
         });
         google.maps.event.addListener(map, 'click', function () {
             if (infoWindow)
@@ -94,13 +94,14 @@
         });
     }
 
-    function createBookmark() {
+    function createBookmark(e) {
+        alert($(this).data('title'));
         $.ajax({
             url:    '/bookmarked_locations/create',
             type:   'post',
-            data:   {name:'Location',
-                    latitude: marker.position.lat(),
-                    longitude: marker.position.lng()
+            data:   {name: $(this).data('title'),
+                    latitude: $(this).data('lat'),
+                    longitude: $(this).data('lon')
             }
         });
     }
@@ -316,9 +317,21 @@
                         animation: google.maps.Animation.DROP
                     });
 
+//                    marker.info = new google.maps.InfoWindow({
+////                        content: '<a class="waves-effect waves-light btn" onclick="createBookmark()" data-lat='+ this.position.lat() +'data-lon='+this.position.lng()+'data-title='+this.getTitle()+'><i class="mdi-file-favorite left"></i>Bookmark '+marker.getTitle()+'</a>'
+//                    });
+
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infoWindow.setContent('<a id="testinfo" class="waves-effect waves-light btn" data-lat="'+ this.position.lat() +'" data-lon="'+this.position.lng()+'" data-title="'+this.getTitle()+'"><i class="mdi-file-favorite left"></i>Bookmark '+this.getTitle()+'</a>')
+                        infoWindow.open(map,this);
+                        $('#testinfo').click(createBookmark);
+                    });
+
                     markers.push(marker);
 
                     bounds.extend(place.geometry.location);
+
+
                 }
 
                 map.fitBounds(bounds);
@@ -335,6 +348,17 @@
 
         directionsDisplay = new google.maps.DirectionsRenderer();
         directionsDisplay.setMap(map);
+    }
+
+    function openInfoWindow( marker ){
+        var title = marker.getTitle();
+        var contentString = $('<a class="waves-effect waves-light btn" onclick="createBookmark()" data-lat='+ marker.position.lat() +'data-lon='+marker.position.lng()+'data-title='+marker.getTitle()+'><i class="mdi-file-favorite left"></i>Bookmark '+title+'</a><br>');
+        if(infoWindow){
+            infoWindow.close();
+        }
+        infoWindow = new google.maps.InfoWindow;
+        infoWindow.setContent(contentString[0]);
+        infoWindow.open(map, marker);
     }
 
     mapLayer(map);
@@ -421,7 +445,7 @@
     });
 
     $('.traffic-card').click(centerMapCardClick);
-
+    $('.collection-item').click(centerMapCardClick);
     function centerMapCardClick(e) {
         map.panTo(new google.maps.LatLng($(this).data('lat'), $(this).data('lon')));
         map.setZoom(17);

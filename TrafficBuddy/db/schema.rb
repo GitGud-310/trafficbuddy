@@ -59,8 +59,6 @@ ActiveRecord::Schema.define(version: 20150330050936) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.decimal  "latitude",        precision: 15, scale: 10, default: 0.0
-    t.decimal  "longitude",       precision: 15, scale: 10, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"

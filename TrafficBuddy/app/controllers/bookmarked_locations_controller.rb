@@ -23,6 +23,12 @@ class BookmarkedLocationsController < ApplicationController
     end
   end
 
+  def destroy
+    BookmarkedLocation.find(params[:id]).destroy
+    flash[:success] = "Bookmark removed"
+    redirect_to root_path
+  end
+
   private
 
   def bookmarked_location_params
