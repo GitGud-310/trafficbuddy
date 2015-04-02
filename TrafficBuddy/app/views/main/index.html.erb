@@ -313,17 +313,20 @@
 
     function prepareTripPlanner() {
         $('#destination-loc').focus();
+        $('#destination-loc-label').addClass('active');
         document.getElementById('destination-loc').value = document.getElementById('search-query').value;
     }
 
     function setStart() {
         var start = $(this).data('start');
         document.getElementById('start-loc').value = start;
+        $('#start-loc-label').addClass('active');
     }
 
     function setEnd() {
         var end = $(this).data('end');
         document.getElementById('destination-loc').value = end;
+        $('#destination-loc-label').addClass('active');
     }
 
     function initialize(field) {
@@ -440,6 +443,9 @@
                     });
 
                     google.maps.event.addListener(marker, 'click', function () {
+                        if (openWindow)
+                            openWindow.close();
+                        openWindow =  infowindow;
                         infowindow.open(map, marker);
                     });
                 };
