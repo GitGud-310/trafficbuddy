@@ -116,7 +116,7 @@
 
         <% @bookmark = BookmarkedLocation.where(user_id: current_user).last %>
 
-        var li = '<tr class="bookmark-item" data-lat="' + latitude + '" data-lon="' + longitude + '">';
+        var li = '<tr class="bookmark-item" data-lat="' + latitude + '" data-lon="' + longitude + '" style="cursor: pointer;">';
         li += '<td>' + title + '</td>';
         li += '<td>' + latitude + '</td>';
         li += '<td>' + longitude + '</td>';
@@ -124,8 +124,9 @@
         li += '</tr>';
 
         $('#bookmark-list tr:last').after(li);
+        $('.bookmark-item').click(centerMapCardClick);
 
-        var tr = '<li class="end-dropdown" data-end="' + title + '"><a href="#!">' + title + '</a></li>';
+        var tr = '<li class="end-dropdown" data-end="' + title + '"><a href="#!" >' + title + '</a></li>';
         var tr2 = '<li class="divider"></li>';
 
         $('#dropdown1 ul').append(tr);
@@ -306,6 +307,8 @@
         $('#planned-trip-table tr:last').append(td2);
         $('#planned-trip-table tr:last').append(td3);
         $('#planned-trip-table tr:last').append(td4);
+        $('.planned-trip-row').click(plotRoute);
+
     }
 
     function prepareTripPlanner() {
