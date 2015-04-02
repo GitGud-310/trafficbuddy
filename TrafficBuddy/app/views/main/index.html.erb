@@ -343,6 +343,16 @@
                         $('#testinfo').click(createBookmark);
                     });
 
+                    google.maps.event.addListener(map, 'click', function() {
+                        if (infoWindow)
+                            infoWindow.close();
+                    });
+
+                    google.maps.event.addListener(map, 'drag', function() {
+                        if (infoWindow)
+                            infoWindow.close();
+                    });
+
                     markers.push(marker);
 
                     bounds.extend(place.geometry.location);
