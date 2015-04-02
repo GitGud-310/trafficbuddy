@@ -322,7 +322,7 @@
 //                    });
 
                     google.maps.event.addListener(marker, 'click', function() {
-                        infoWindow.setContent('<a id="testinfo" class="waves-effect waves-light btn" data-lat="'+ this.position.lat() +'" data-lon="'+this.position.lng()+'" data-title="'+this.getTitle()+'"><i class="mdi-file-favorite left"></i>Bookmark '+this.getTitle()+'</a>')
+                        infoWindow.setContent('<a id="testinfo" class="waves-effect waves-light btn" data-lat="'+ this.position.lat() +'" data-lon="'+this.position.lng()+'" data-title="'+this.getTitle()+'"><i class="mdi-file-favorite left"></i>Bookmark '+this.getTitle()+'</a>');
                         infoWindow.open(map,this);
                         $('#testinfo').click(createBookmark);
                     });
@@ -411,7 +411,7 @@
         e.preventDefault();
 
         if (document.getElementById('start-loc').value == "" || document.getElementById('destination-loc').value == "") {
-            toast('Please fill out both fields!', 2000)
+            toast('Please fill out both fields!', 2000);
             return;
         }
 

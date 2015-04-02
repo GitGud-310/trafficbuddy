@@ -29,6 +29,13 @@ class BookmarkedLocationsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy_all
+    @bookmarked_locations = BookmarkedLocation.where(user_id: session[:user_id])
+    @bookmarked_locations.destroy_all
+    flash[:success] = "Bookmarks removed"
+    redirect_to root_path
+  end
+
   private
 
   def bookmarked_location_params
