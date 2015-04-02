@@ -437,6 +437,9 @@
                     });
 
                     google.maps.event.addListener(marker, 'click', function () {
+                        if (openWindow)
+                            openWindow.close();
+                        openWindow =  infowindow;
                         infowindow.open(map, marker);
                     });
                 };
