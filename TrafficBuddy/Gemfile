@@ -33,8 +33,10 @@ gem 'omniauth-facebook', '~> 1.4.1'
 # Social media share buttons
 gem 'social-share-button', '~> 0.1.6'
 
+group :production do
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
