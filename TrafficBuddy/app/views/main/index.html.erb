@@ -290,7 +290,7 @@
         var tr = '<tr class="planned-trip-row" data-start="' + start + '" data-end="' + end + '" style="cursor: pointer;"></tr>'
         var td1 = '<td> ' + start + ' </td>'
         var td2 = '<td> ' + end + ' </td>'
-        var td3 = '<td> ' + (new Date()) + ' </td>'
+        var td3 = '<td> ' + '<%= Time.current() %>' + ' </td>'
         var td4 = '<td class="waves-effect"><%= link_to 'DELETE', @planned_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>'
         $('#planned-trip-table tr:last').after(tr);
         $('#planned-trip-table tr:last').append(td1);
@@ -358,6 +358,16 @@
                         infoWindow.setContent('<a id="testinfo" class="waves-effect waves-light btn" data-lat="'+ this.position.lat() +'" data-lon="'+this.position.lng()+'" data-title="'+this.getTitle()+'"><i class="mdi-file-favorite left"></i>Bookmark '+this.getTitle()+'</a>');
                         infoWindow.open(map,this);
                         $('#testinfo').click(createBookmark);
+                    });
+
+                    google.maps.event.addListener(map, 'click', function() {
+                        if (infoWindow)
+                            infoWindow.close();
+                    });
+
+                    google.maps.event.addListener(map, 'drag', function() {
+                        if (infoWindow)
+                            infoWindow.close();
                     });
 
                     markers.push(marker);
@@ -479,10 +489,11 @@
     });
 
     $('.traffic-card').click(centerMapCardClick);
-    $('.collection-item').click(centerMapCardClick);
+    $('.bookmark-item').click(centerMapCardClick);
     function centerMapCardClick(e) {
         map.panTo(new google.maps.LatLng($(this).data('lat'), $(this).data('lon')));
         map.setZoom(17);
+        $('#bookmarked_locations-modal').closeModal();
     }
 
     $('.planned-trip-row').click(plotRoute);
