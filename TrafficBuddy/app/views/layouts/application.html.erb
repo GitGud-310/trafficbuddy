@@ -152,8 +152,8 @@
               </label>
             </div>
             <% if logged_in? %>
-                <div class="col s4" style="position: relative;">
-                    <a style="bottom: 0; position: relative;" class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Select from Favourites</a>
+                <div class="col s4" style="height: 61px; position:relative;">
+                    <a style="position: absolute; bottom: 0; margin-bottom: 0;" class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Select from Favourites</a>
 
                     <ul id="dropdown1" class="dropdown-content">
                         <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
@@ -171,8 +171,8 @@
               </label>
             </div>
             <% if logged_in? %>
-                <div class="col s4">
-                  <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Select from Favourites</a>
+                <div class="col s4" style="height: 61px; position:relative;"">
+                  <a style="position: absolute; bottom: 0; margin-bottom: 0;"  class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Select from Favourites</a>
 
                     <ul id="dropdown2" class="dropdown-content">
                         <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
