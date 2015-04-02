@@ -95,9 +95,9 @@
 
     function createBookmark(e) {
         '<% if logged_in? %>'
-        alert("Successfully bookmarked!!")
+            toast("Successfully bookmarked!", 2000);
         '<% else %>'
-        alert("Sorry, you need to log in to use this feature.")
+            toast("Sorry, you need to log in to use this feature.", 2000);
         '<% end %>'
         $.ajax({
             url:    '/bookmarked_locations/create',
