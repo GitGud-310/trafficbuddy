@@ -497,13 +497,16 @@
         });
     <% end %>
 
-    google.maps.event.addDomListener(window, 'load', function() {
+    function totalInit() {
         initialize('search-query');
         initialize('start-loc');
         initialize('destination-loc');
         initialize('new_location');
         webcamInit();
-    });
+    }
+
+    google.maps.event.addDomListener(window, 'load', totalInit);
+    $(document).on('page:load', totalInit);
 
     $('.traffic-card').click(centerMapCardClick);
     $('.bookmark-item').click(centerMapCardClick);
