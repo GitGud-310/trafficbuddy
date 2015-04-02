@@ -84,7 +84,6 @@
                     <% end %>
                     <li class="no-hover"><!-- Modal Trigger for alternative location--><a class="waves-effect waves-light btn modal-trigger" href="#modal2">Location</a></li>
                     <li class="no-hover"><!-- Modal Trigger for trip planning --><a class="waves-effect waves-light btn modal-trigger" href="#trip-modal" id="trip-planner">Plan a Trip</a></li>
-                    <li class="no-hover"><a class="blue button-collapse btn" href="#" data-activates="slide-out"><i class="mdi-navigation-menu"></i></a></li>
                   <%= social_share_button_tag("Check out TrafficBuddy!",
                                                 :popup => "true", 
                                                 :url => "http://trafficbuddy.com", 
@@ -96,7 +95,7 @@
         </div>
     </nav>
 </div>
-
+<a class="button-collapse btn" style="background: none; -webkit-box-shadow: none; box-shadow: none; border: none; color: #aaa; z-index: 9999; position: fixed; top: 0; right: 0; height: 64px; line-height: 64px;" href="#" data-activates="slide-out"><i class="mdi-navigation-menu"></i></a>
 <ul id="slide-out" class="s3 side-nav">
  <%= render 'traffic_events/events' %>
 </ul>
@@ -148,13 +147,13 @@
           <form class="col s12" id="trip-form">
             <div class="input-field <% if logged_in? %> col s8 <% end %>">
               <input name="Starting Location" id="start-loc" type="text" class="validate" placeholder="">
-              <label for="start-loc">
+              <label id="start-loc-label" for="start-loc">
                 <span class="grey-text text-darken-4">Starting Location</span>
               </label>
             </div>
             <% if logged_in? %>
-                <div class="col s4" style="position: relative;">
-                    <a style="bottom: 0; position: relative;" class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Select from Favourites</a>
+                <div class="col s4" style="height: 61px; position:relative;">
+                    <a style="position: absolute; bottom: 0; margin-bottom: 0;" class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Select from Favourites</a>
 
                     <ul id="dropdown1" class="dropdown-content">
                         <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
@@ -167,13 +166,13 @@
 
             <div class="input-field <% if logged_in? %> col s8 <% end %>">
               <input name="Destination Location" id="destination-loc" type="text" class="validate" placeholder="">
-              <label for="destination-loc">
+              <label id="destination-loc-label" for="destination-loc">
                 <span class="grey-text text-darken-4">Destination Location</span>
               </label>
             </div>
             <% if logged_in? %>
-                <div class="col s4">
-                  <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Select from Favourites</a>
+                <div class="col s4" style="height: 61px; position:relative;">
+                  <a style="position: absolute; bottom: 0; margin-bottom: 0;"  class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Select from Favourites</a>
 
                     <ul id="dropdown2" class="dropdown-content">
                         <% BookmarkedLocation.where(user_id: session[:user_id]).each do |b| %>
@@ -218,10 +217,10 @@
     <tbody>
 
     <% PlannedTrip.where(user_id: session[:user_id]).each do |planned_trip| %>
-        <tr class="planned-trip-row" data-start="<%= planned_trip.start_loc%>" data-end="<%= planned_trip.end_loc%>" style="cursor: pointer;">
-          <td> <%= planned_trip.start_loc %> </td>
-          <td> <%= planned_trip.end_loc %> </td>
-          <td> <%= planned_trip.created_at %> </td>
+        <tr style="cursor: pointer;">
+          <td class="planned-trip-row" data-start="<%= planned_trip.start_loc%>" data-end="<%= planned_trip.end_loc%>"> <%= planned_trip.start_loc %> </td>
+          <td class="planned-trip-row" data-start="<%= planned_trip.start_loc%>" data-end="<%= planned_trip.end_loc%>"> <%= planned_trip.end_loc %> </td>
+          <td class="planned-trip-row" data-start="<%= planned_trip.start_loc%>" data-end="<%= planned_trip.end_loc%>"> <%= planned_trip.created_at %> </td>
           <td class="waves-effect"><%= link_to 'DELETE', planned_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
     <% end %>
@@ -255,10 +254,10 @@
       <tbody>
 
       <% BookmarkedLocation.where(user_id: session[:user_id]).each do |bookmarked_loc| %>
-          <tr class="bookmark-item" data-lat="<%= bookmarked_loc.latitude %>" data-lon="<%= bookmarked_loc.longitude %>">
-            <td> <%= bookmarked_loc.name %> </td>
-            <td> <%= bookmarked_loc.latitude %> </td>
-            <td> <%= bookmarked_loc.longitude %> </td>
+          <tr style="cursor: pointer;">
+            <td class="bookmark-item" data-lat="<%= bookmarked_loc.latitude %>" data-lon="<%= bookmarked_loc.longitude %>"> <%= bookmarked_loc.name %> </td>
+            <td class="bookmark-item" data-lat="<%= bookmarked_loc.latitude %>" data-lon="<%= bookmarked_loc.longitude %>"> <%= bookmarked_loc.latitude %> </td>
+            <td class="bookmark-item" data-lat="<%= bookmarked_loc.latitude %>" data-lon="<%= bookmarked_loc.longitude %>"> <%= bookmarked_loc.longitude %> </td>
             <td class="waves-effect"><%= link_to 'DELETE', bookmarked_loc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
       <% end %>

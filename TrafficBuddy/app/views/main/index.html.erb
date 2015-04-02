@@ -116,16 +116,17 @@
 
         <% @bookmark = BookmarkedLocation.where(user_id: current_user).last %>
 
-        var li = '<tr class="bookmark-item" data-lat="' + latitude + '" data-lon="' + longitude + '">';
+        var li = '<tr class="bookmark-item" data-lat="' + latitude + '" data-lon="' + longitude + '" style="cursor: pointer;">';
         li += '<td>' + title + '</td>';
         li += '<td>' + latitude + '</td>';
         li += '<td>' + longitude + '</td>';
-        li += '<td class="waves-effect"><%= link_to 'DELETE', @bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>'
+        li += '<td>' + 'Just Added' + '</td>';
         li += '</tr>';
 
         $('#bookmark-list tr:last').after(li);
+        $('.bookmark-item').click(centerMapCardClick);
 
-        var tr = '<li class="end-dropdown" data-end="' + title + '"><a href="#!">' + title + '</a></li>';
+        var tr = '<li class="end-dropdown" data-end="' + title + '"><a href="#!" >' + title + '</a></li>';
         var tr2 = '<li class="divider"></li>';
 
         $('#dropdown1 ul').append(tr);
@@ -294,33 +295,32 @@
             error: function() {}
         });
 
-
-        <% @planned_trip = PlannedTrip.where(user_id: session[:user_id]).last %>
         var tr = '<tr class="planned-trip-row" data-start="' + start + '" data-end="' + end + '" style="cursor: pointer;"></tr>'
         var td1 = '<td> ' + start + ' </td>'
         var td2 = '<td> ' + end + ' </td>'
         var td3 = '<td> ' + '<%= Time.current() %>' + ' </td>'
-        var td4 = '<td class="waves-effect"><%= link_to 'DELETE', @planned_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>'
         $('#planned-trip-table tr:last').after(tr);
         $('#planned-trip-table tr:last').append(td1);
         $('#planned-trip-table tr:last').append(td2);
         $('#planned-trip-table tr:last').append(td3);
-        $('#planned-trip-table tr:last').append(td4);
     }
 
     function prepareTripPlanner() {
         $('#destination-loc').focus();
+        $('#destination-loc-label').addClass('active');
         document.getElementById('destination-loc').value = document.getElementById('search-query').value;
     }
 
     function setStart() {
         var start = $(this).data('start');
-        document.getElementById('start-loc').value = start;
+        $('#start-loc').val(start).addClass('valid');
+        $('#start-loc-label').addClass('active');
     }
 
     function setEnd() {
         var end = $(this).data('end');
-        document.getElementById('destination-loc').value = end;
+        $('#destination-loc').val(end).addClass('valid');
+        $('#destination-loc-label').addClass('active');
     }
 
     function initialize(field) {
@@ -424,20 +424,25 @@
             var re = /http:\/\/former\.vancouver\.ca\/engsvcs\/streets\/roadwork\/.*\.htm/;
             webcams = toGeoJSON.kml(r).features;
             webcams.forEach(function(e) {
-                var infowindow = new google.maps.InfoWindow({
-                    content: "<iframe style='width: 650px; height: 600px;' src='" + e.properties.description.match(re)[0] + "'></iframe>" //e.properties.description.substring(4, e.properties.description.length) // remove <br> at beginning
-                });
+                if (e.properties.description.match(re)) {
+                    var infowindow = new google.maps.InfoWindow({
+                        content: "<iframe style='width: 650px; height: 600px;' src='" + e.properties.description.match(re)[0] + "'></iframe>" //e.properties.description.substring(4, e.properties.description.length) // remove <br> at beginning
+                    });
 
-                var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(e.geometry.coordinates[1], e.geometry.coordinates[0]),
-                    map: map,
-                    icon: 'http://google.github.io/material-design-icons/image/svg/ic_camera_alt_24px.svg',
-                    title: e.properties.name
-                });
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(e.geometry.coordinates[1], e.geometry.coordinates[0]),
+                        map: map,
+                        icon: 'http://google.github.io/material-design-icons/image/svg/ic_camera_alt_24px.svg',
+                        title: e.properties.name
+                    });
 
-                google.maps.event.addListener(marker, 'click', function() {
-                    infowindow.open(map,marker);
-                });
+                    google.maps.event.addListener(marker, 'click', function () {
+                        if (openWindow)
+                            openWindow.close();
+                        openWindow =  infowindow;
+                        infowindow.open(map, marker);
+                    });
+                };
             });
         });
     }
@@ -489,13 +494,16 @@
         });
     <% end %>
 
-    google.maps.event.addDomListener(window, 'load', function() {
+    function totalInit() {
         initialize('search-query');
         initialize('start-loc');
         initialize('destination-loc');
         initialize('new_location');
         webcamInit();
-    });
+    }
+
+    google.maps.event.addDomListener(window, 'load', totalInit);
+    $(document).on('page:load', totalInit);
 
     $('.traffic-card').click(centerMapCardClick);
     $('.bookmark-item').click(centerMapCardClick);
