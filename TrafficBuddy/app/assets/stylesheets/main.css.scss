@@ -114,17 +114,20 @@ body {
 .traffic-card {
   cursor: pointer;
 }
+
+.social-share-button {
+  left: 50px;
+}
 .social-share-button-google_plus{
   height: 16px;
   width: 16px;
   background: url(google_plus.png) no-repeat !important;
-
 }
 
 .social-share-button-twitter{
   height: 16px;
-  width: 16px;
-  background: url(twitter.png) no-repeat !important;
+  width: 32px;
+  background: url(newtwitter.png) no-repeat !important;
 }
 
 .social-share-button-facebook{
