@@ -273,7 +273,7 @@
         var tr = '<tr class="planned-trip-row" data-start="' + start + '" data-end="' + end + '" style="cursor: pointer;"></tr>'
         var td1 = '<td> ' + start + ' </td>'
         var td2 = '<td> ' + end + ' </td>'
-        var td3 = '<td> ' + (new Date()) + ' </td>'
+        var td3 = '<td> ' + '<%= Time.current() %>' + ' </td>'
         var td4 = '<td class="waves-effect"><%= link_to 'DELETE', @planned_trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>'
         $('#planned-trip-table tr:last').after(tr);
         $('#planned-trip-table tr:last').append(td1);
